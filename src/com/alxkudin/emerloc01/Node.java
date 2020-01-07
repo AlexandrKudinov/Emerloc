@@ -5,6 +5,7 @@ import java.util.Random;
 
 import static com.alxkudin.emerloc01.NodeType.*;
 
+
 public class Node {
     private Random random = new Random();
     private int X;
@@ -15,11 +16,20 @@ public class Node {
     private Node down;
     private House house;
     private Pipeline pipeline;
+    private Pipe pipe;
     private NodeType nodeType = PIPELINE_BLOCK;
 
     public Node(int X, int Y) {
         this.X = X;
         this.Y = Y;
+    }
+
+    public void setPipe(Pipe pipe) {
+        this.pipe = pipe;
+    }
+
+    public Pipe getPipe() {
+        return pipe;
     }
 
     public void setType(NodeType nodeType) {
@@ -42,7 +52,7 @@ public class Node {
     }
 
     public boolean isHouse() {
-        return nodeType == HOUSE ? true : false;
+        return nodeType == HOUSE;
     }
 
     public boolean isPipelineBlock() {
@@ -173,7 +183,7 @@ public class Node {
     }
 
     public boolean doubleDownNodeTypeIs(NodeType fragmentType) {
-        return down.getDownNode().getType() == fragmentType ? true : false;
+        return down.getDownNode().getType() == fragmentType;
     }
 
     public boolean leftUpNodeTypeIs(NodeType fragmentType) {
@@ -214,6 +224,25 @@ public class Node {
     public boolean twoDownNodesTypesAre(NodeType fragmentType) {
         return (this.getDownNode().typeIs(fragmentType) && this.getDoubleDownNode().typeIs(fragmentType));
     }
+
+    public boolean twoLeftNodesTypesAreNot(NodeType fragmentType) {
+        return (!this.getLeftNode().typeIs(fragmentType) && !this.getDoubleLeftNode().typeIs(fragmentType));
+    }
+
+
+    public boolean twoRightNodesTypesAreNot(NodeType fragmentType) {
+        return (!this.getRightNode().typeIs(fragmentType) && !this.getDoubleRightNode().typeIs(fragmentType));
+    }
+
+    public boolean twoUpNodesTypesAreNot(NodeType fragmentType) {
+        return (!this.getUpNode().typeIs(fragmentType) && !this.getDoubleUpNode().typeIs(fragmentType));
+    }
+
+    public boolean twoDownNodesTypesAreNot(NodeType fragmentType) {
+        return (!this.getDownNode().typeIs(fragmentType) && !this.getDoubleDownNode().typeIs(fragmentType));
+    }
+
+
 
     public boolean thisAndUpNodesTypeIs(NodeType fragmentType) {
         return (this.typeIs(fragmentType) && this.upNodeTypeIs(fragmentType));

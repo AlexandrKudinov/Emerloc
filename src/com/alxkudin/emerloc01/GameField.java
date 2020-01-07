@@ -10,7 +10,7 @@ public class GameField extends JPanel {
         setBackground(Display.background);
         housesMap.buildHouseBlocks();
         housesMap.unionHouses();
-        // WaterSupplyMap.build();
+         WaterSupplyMap.build();
       //  housesMap.addWaterIntake();
 
     }

@@ -1,10 +1,10 @@
 package com.alxkudin.emerloc01;
 
-public enum WaterIntake {
-    UP(0), DOWN(5),LEFT(10),RIGHT(15),FROM_HOUSE(20);
+public enum ArmatureType {
+    UP(5), DOWN(10), LEFT(15), RIGHT(20);
     private int value;
 
-    WaterIntake(int value) {
+    ArmatureType(int value) {
         this.value = value;
     }
 
@@ -16,5 +16,5 @@ public enum WaterIntake {
     public String toString() {
         return String.valueOf(value);
     }
-}
 
+}

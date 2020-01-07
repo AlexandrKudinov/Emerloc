@@ -2,8 +2,8 @@ package com.alxkudin.emerloc01;
 
 import java.awt.*;
 
+import static com.alxkudin.emerloc01.ArmatureType.*;
 import static com.alxkudin.emerloc01.MapStructure.BLOCK;
-import static com.alxkudin.emerloc01.MapStructure.INSTANCE;
 
 
 public class Display {
@@ -22,13 +22,11 @@ public class Display {
     }
 
 
-
     public static void showCross(Graphics g, int x, int y) {
         g.setColor(background);
-        g.fillRect(x+2, y+4, 2, 2);
-        g.fillRect(x+6, y+4, 2, 2);
+        g.fillRect(x + 2, y + 4, 2, 2);
+        g.fillRect(x + 6, y + 4, 2, 2);
     }
-
 
 
     public static void showUpPlumb(Graphics g, int x, int y, boolean isOpen) {
@@ -74,7 +72,7 @@ public class Display {
         } else {
             g.setColor(valveClose);
         }
-        g.fillRect(x + 1, y + 4, 2, 2);
+        g.fillRect(x + 2, y + 4, 2, 2);
     }
 
 
@@ -84,7 +82,7 @@ public class Display {
         } else {
             g.setColor(valveClose);
         }
-        g.fillRect(x + 4, y + 1, 2, 2);
+        g.fillRect(x + 4, y + 2, 2, 2);
     }
 
     public static void showRightValve(Graphics g, int x, int y, boolean isOpen) {
@@ -93,7 +91,7 @@ public class Display {
         } else {
             g.setColor(valveClose);
         }
-        g.fillRect(x + 7, y + 4, 2, 2);
+        g.fillRect(x + 6, y + 4, 2, 2);
     }
 
 
@@ -103,28 +101,56 @@ public class Display {
         } else {
             g.setColor(valveClose);
         }
-        g.fillRect(x + 4, y + 7, 2, 2);
+        g.fillRect(x + 4, y + 6, 2, 2);
     }
 
 
     public static void showHousesMap(Graphics g) {
         for (int j = 0; j < 60; j++) {
             for (int i = 0; i < 120; i++) {
-                Node node = INSTANCE.get(i, j);
+                Node node = MapStructure.INSTANCE.get(i, j);
                 if (node.isHouse()) {
                     showHouse(g, baseX + i * BLOCK, baseY + j * BLOCK);
                     continue;
                 }
-/*
-                if (fragment.typeIs(10)) {
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showCross(g, baseX + i * BLOCK, baseY + j * BLOCK);
-                    continue;
+
+                if (node.isPipelineBlock()) {
+                    if (node.getPipe().containPart(UP)) {
+                        Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                    }
+                    if (node.getPipe().containPart(LEFT)) {
+                        Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                    }
+                    if (node.getPipe().containPart(DOWN)) {
+                        Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                    }
+                    if (node.getPipe().containPart(RIGHT)) {
+                        Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                    }
+                    if (node.getPipe().getParts().size() == 4 || (node.getPipe().getParts().size() == 2 && node.getPipe().getIntake().size() == 2)) {
+                        Display.showCross(g, baseX + i * BLOCK, baseY + j * BLOCK);
+                    }
+
+                    if(node.getPipe().getValve()!=null){
+                        Valve valve = node.getPipe().getValve();
+                        if(valve.getType().equals(UP)){
+                            Display.showUpValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        }
+                        if(valve.getType().equals(DOWN)){
+                            Display.showDownValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        }
+                        if(valve.getType().equals(LEFT)){
+                            Display.showLeftValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        }
+                        if(valve.getType().equals(RIGHT)){
+                            Display.showRightValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        }
+                    }
+
                 }
 
+
+/*
                 if (fragment.typeIs(14)) {
 
                     Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
@@ -266,8 +292,8 @@ public class Display {
             }
 
 
-            }
         }
-
-
     }
+
+
+}

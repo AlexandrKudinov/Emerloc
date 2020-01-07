@@ -3,8 +3,6 @@ package com.alxkudin.emerloc01;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.alxkudin.emerloc01.NodeType.HOUSE;
-import static com.alxkudin.emerloc01.NodeType.HOUSE_BLOCK;
 
 public class House {
 
@@ -23,18 +21,18 @@ public class House {
 
     public void add(Node node) {
         this.houseFragments.add(node);
-        node.setType(HOUSE);
+        node.setType(NodeType.HOUSE);
         node.setHouse(this);
-        if (node.leftNodeTypeIs(HOUSE_BLOCK) && node.getX() != 0) {
+        if (node.leftNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getX() != 0) {
             add(node.getLeftNode());
         }
-        if (node.rightNodeTypeIs(HOUSE_BLOCK) && node.getX() != MapStructure.WIDTH - 1) {
+        if (node.rightNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getX() != MapStructure.WIDTH - 1) {
             add(node.getRightNode());
         }
-        if (node.upNodeTypeIs(HOUSE_BLOCK) && node.getY() != 0) {
+        if (node.upNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getY() != 0) {
             add(node.getUpNode());
         }
-        if (node.downNodeTypeIs(HOUSE_BLOCK) && node.getY() != MapStructure.HEIGHT - 1) {
+        if (node.downNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getY() != MapStructure.HEIGHT - 1) {
             add(node.getDownNode());
         }
     }

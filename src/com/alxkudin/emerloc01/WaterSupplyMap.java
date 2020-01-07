@@ -1,136 +1,144 @@
 package com.alxkudin.emerloc01;
 
-import static com.alxkudin.emerloc01.MapStructure.HEIGHT;
-import static com.alxkudin.emerloc01.MapStructure.WIDTH;
+import java.util.Random;
+
+import static com.alxkudin.emerloc01.ArmatureType.*;
+import static com.alxkudin.emerloc01.MapStructure.*;
+import static com.alxkudin.emerloc01.NodeType.HOUSE;
+import static com.alxkudin.emerloc01.NodeType.PIPELINE;
 
 public class WaterSupplyMap {
-    /*
+
     public static void build() {
         for (int j = 0; j < HEIGHT; j++) {
             for (int i = 0; i < WIDTH; i++) {
 
-                if (GameField.housesMap.map.get(i, j).getType() == 0) {
-                    Fragment fragment = GameField.housesMap.map.get(i, j);
+                if (INSTANCE.get(i, j).isPipelineBlock()) {
+                    Node node = INSTANCE.get(i, j);
+                    Pipe pipe1 = new Pipe();
+                    INSTANCE.get(i, j).setPipe(pipe1);
 
-                    if (!fragment.upTypeIs(6) && !fragment.doubleUpTypeIs(6) &&     //cross 10
-                            !fragment.leftTypeIs(6) && !fragment.doubleLeftTypeIs(6) &&
-                            !fragment.rightTypeIs(6) && !fragment.doubleRightTypeIs(6) &&
-                            !fragment.downTypeIs(6) && !fragment.doubleDownTypeIs(6)) {
-                        fragment.setType(10);
+                    if (!node.upNodeTypeIs(HOUSE) &&     //cross
+                            !node.leftNodeTypeIs(HOUSE) &&
+                            !node.rightNodeTypeIs(HOUSE) &&
+                            !node.downNodeTypeIs(HOUSE)) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(LEFT, UP, RIGHT, DOWN);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
-                    if (!fragment.leftTypeIs(6) &&  //up valve 28
-                            !fragment.upTypeIs(6) &&
-                            !fragment.doubleUpTypeIs(6) &&
-                            !fragment.rightTypeIs(6) &&
-                            (fragment.downTypeIs(6))) {
-                        fragment.setType(28);
-                        continue;
-                    }
-
-
-                    if (!fragment.leftTypeIs(6) &&   //horizontal 16
-                            !fragment.rightTypeIs(6) &&
-                            ((!fragment.downTypeIs(6) && !fragment.rightDownTypeIs(6) && fragment.upTypeIs(6)) ||
-                                    (fragment.upTypeIs(6) && fragment.downTypeIs(6)) || (fragment.downTypeIs(6) && !fragment.upTypeIs(6) && (!fragment.rightUpTypeIs(6) || !fragment.leftUpTypeIs(6))) ||
-                                    (!fragment.downTypeIs(6) && !fragment.leftDownTypeIs(6) && fragment.upTypeIs(6))
-                            )) {
-                        fragment.setType(16);
+                    if (!node.leftNodeTypeIs(HOUSE) &&  //up valve
+                            !node.upNodeTypeIs(HOUSE) &&
+                            !node.rightNodeTypeIs(HOUSE) &&
+                            (node.downNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(UP, LEFT, RIGHT);
+                        pipe.setValve(new Valve(UP));
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
 
-                    if (!fragment.leftTypeIs(6) &&   //down valve  32
-                            !fragment.rightTypeIs(6) &&
-                            !fragment.downTypeIs(6) && !fragment.doubleDownTypeIs(6) &&
-                            (fragment.upTypeIs(6) || (!fragment.upTypeIs(6) && (!fragment.rightUpTypeIs(6) || !fragment.leftUpTypeIs(6))))) {
-                        fragment.setType(32);
+                    if ((!node.rightNodeTypeIs(HOUSE) && !node.leftNodeTypeIs(HOUSE)) && //horizontal
+                            ((node.upNodeTypeIs(HOUSE) && (node.downNodeTypeIs(HOUSE) ||
+                                    ((!node.rightDownNodeTypeIs(HOUSE)) || !node.leftDownNodeTypeIs(HOUSE)))) ||
+                                    (node.downNodeTypeIs(HOUSE) && (!node.rightUpNodeTypeIs(HOUSE) ||
+                                            !node.leftUpNodeTypeIs(HOUSE))))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(LEFT, RIGHT);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
 
-                    if (!fragment.leftTypeIs(6) &&  // left down corner 18
-                            !fragment.downTypeIs(6) &&
-                            fragment.leftDownTypeIs(6) &&
-                            ((fragment.rightTypeIs(6) && fragment.upTypeIs(6) && fragment.rightUpTypeIs(6)) || (((!fragment.rightUpTypeIs(6) || !fragment.getLeft().getDoubleUp().typeIs(6) || !fragment.getRight().getDoubleUp().typeIs(6)) && !fragment.upTypeIs(6) && (!fragment.leftUpTypeIs(6)))))) {
-                        fragment.setType(18);
-                        continue;
-
-
-                    }
-                    if (!fragment.leftTypeIs(6) &&  //  left up corner 20
-                            !fragment.upTypeIs(6) &&
-                            fragment.leftUpTypeIs(6) &&
-                            fragment.rightTypeIs(6) &&
-                            fragment.downTypeIs(6) &&
-                            fragment.rightDownTypeIs(6)) {
-                        fragment.setType(20);
+                    if (!node.downNodeTypeIs(HOUSE) && !node.rightNodeTypeIs(HOUSE) && // down valve
+                            !node.leftNodeTypeIs(HOUSE) &&
+                            (node.upNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(DOWN, LEFT, RIGHT);
+                        pipe.setValve(new Valve(DOWN));
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
 
-                    if (!fragment.upTypeIs(0) &&   //right up corner 22
-                            !fragment.rightTypeIs(6) &&
-                            fragment.rightUpTypeIs(6) &&
-                            fragment.leftTypeIs(6) &&
-                            fragment.leftDownTypeIs(6) &&
-                            fragment.downTypeIs(6)) {
-                        fragment.setType(22);
-                        continue;
-                    }
-
-                    if (!fragment.rightTypeIs(6) && //right down corner 24
-                            !fragment.downTypeIs(6) &&
-                            fragment.rightDownTypeIs(6) &&
-                            fragment.leftTypeIs(6) &&
-                            ((fragment.upTypeIs(6) &&
-                                    fragment.leftUpTypeIs(6)) || (!fragment.upTypeIs(6) && !fragment.rightUpTypeIs(6)))) {
-                        fragment.setType(24);
+                    if (!node.leftNodeTypeIs(HOUSE) && !node.downNodeTypeIs(HOUSE) && //left down corner
+                            node.leftDownNodeTypeIs(HOUSE) && node.rightNodeTypeIs(HOUSE) &&
+                            (node.upNodeTypeIs(HOUSE) || !node.leftUpNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(LEFT, DOWN);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
 
-                    if (!fragment.leftTypeIs(6) &&
-                            !fragment.doubleLeftTypeIs(6) &&// left valve 26
-                            !fragment.upTypeIs(6) &&
-                            !fragment.downTypeIs(6) &&
-                            fragment.rightTypeIs(6) &&
-                            (fragment.leftUpTypeIs(6) ||
-                                    fragment.leftDownTypeIs(6))) {
-                        fragment.setType(26);
+                    if (!node.leftNodeTypeIs(HOUSE) && node.leftUpNodeTypeIs(HOUSE) &&  //left up corner
+                            !node.upNodeTypeIs(HOUSE) && node.rightNodeTypeIs(HOUSE) && node.downNodeTypeIs(HOUSE)) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(LEFT, UP);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
 
-                    if (!fragment.upTypeIs(6) &&   //right valve  30
-                            !fragment.rightTypeIs(6) &&
-                            !fragment.doubleRightTypeIs(6) &&
-                            !fragment.downTypeIs(6) &&
-                            fragment.leftTypeIs(6)) {
-                        fragment.setType(30);
+                    if (node.leftNodeTypeIs(HOUSE) && node.downNodeTypeIs(HOUSE) && // right up corner
+                            node.rightUpNodeTypeIs(HOUSE) &&
+                            !node.upNodeTypeIs(HOUSE) && !node.rightNodeTypeIs(HOUSE)) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(RIGHT, UP);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
 
-                    if (!fragment.upTypeIs(6) &&   //vertical 14
-                            !fragment.downTypeIs(6) &&
-                            ((!fragment.leftTypeIs(6) && !fragment.rightTypeIs(6)) || (fragment.rightTypeIs(6) ||
-                                    fragment.leftTypeIs(6)))) {
-                        fragment.setType(14);
+                    if (node.leftNodeTypeIs(HOUSE) && !node.downNodeTypeIs(HOUSE) && //right down corner
+                            !node.rightNodeTypeIs(HOUSE) && node.rightDownNodeTypeIs(HOUSE) &&
+                            (node.upNodeTypeIs(HOUSE) || !node.rightUpNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(RIGHT, DOWN);
+                        INSTANCE.get(i, j).setPipe(pipe);
                         continue;
                     }
+
+
+                    if (node.rightNodeTypeIs(HOUSE) && !node.upNodeTypeIs(HOUSE) && // left valve
+                            !node.downNodeTypeIs(HOUSE) && !node.leftNodeTypeIs(HOUSE) &&
+                            (node.leftUpNodeTypeIs(HOUSE) || node.leftDownNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(DOWN, LEFT, UP);
+                        pipe.setValve(new Valve(LEFT));
+                        INSTANCE.get(i, j).setPipe(pipe);
+                        continue;
+                    }
+
+
+                    if (node.leftNodeTypeIs(HOUSE)&& !node.rightNodeTypeIs(HOUSE)&& //right valve
+                    !node.upNodeTypeIs(HOUSE) && !node.downNodeTypeIs(HOUSE) &&
+                            (node.rightUpNodeTypeIs(HOUSE) || node.rightDownNodeTypeIs(HOUSE))) {
+                        Pipe pipe = new Pipe();
+                        pipe.addParts(DOWN, RIGHT, UP);
+                        pipe.setValve(new Valve(RIGHT));
+                        INSTANCE.get(i, j).setPipe(pipe);
+                        continue;
+                    }
+
+                    Pipe pipe = new Pipe(); //vertical
+                    pipe.addParts(UP, DOWN);
+                    INSTANCE.get(i, j).setPipe(pipe);
                 }
             }
         }
 
+
         for (int j = 0; j < HEIGHT; j++) {
             for (int i = 0; i < WIDTH; i++) {
-                System.out.print(GameField.housesMap.map.get(i, j).getType() + " ");
+                System.out.print(INSTANCE.get(i, j).getType());
             }
             System.out.println();
-
         }
+
+
     }
 
-     */
+
 }

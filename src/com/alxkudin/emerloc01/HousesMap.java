@@ -3,7 +3,7 @@ package com.alxkudin.emerloc01;
 import java.util.*;
 
 import static com.alxkudin.emerloc01.MapStructure.*;
-import static com.alxkudin.emerloc01.NodeType.*;
+
 
 public class HousesMap {
     Map<Node, House> houses = new HashMap<>();
@@ -19,25 +19,25 @@ public class HousesMap {
 
 
     public static void buildHouseBlocks() {
-        INSTANCE.get(0, 0).setType(HOUSE_BLOCK);  // set corner nodes type
-        INSTANCE.get(0, HEIGHT - 1).setType(HOUSE_BLOCK);
-        INSTANCE.get(WIDTH - 1, 0).setType(HOUSE_BLOCK);
-        INSTANCE.get(WIDTH - 1, HEIGHT - 1).setType(HOUSE_BLOCK);
+        INSTANCE.get(0, 0).  setType(NodeType.HOUSE_BLOCK);  // set corner nodes type
+        INSTANCE.get(0, HEIGHT - 1).setType(NodeType.HOUSE_BLOCK);
+        INSTANCE.get(WIDTH - 1, 0).setType(NodeType.HOUSE_BLOCK);
+        INSTANCE.get(WIDTH - 1, HEIGHT - 1).setType(NodeType.HOUSE_BLOCK);
         INSTANCE.get(1, 0).setRandomAsHouseBlock();
         INSTANCE.get(1, HEIGHT - 1).setEqualType(INSTANCE.get(1, 0));
         INSTANCE.get(0, 1).setRandomAsHouseBlock();
         INSTANCE.get(WIDTH - 1, 1).setEqualType(INSTANCE.get(0, 1));
 
         for (int i = 2; i < WIDTH - 1; i++) { // set first & last line
-            if (!INSTANCE.get(i, 0).leftNodeTypeIs(HOUSE_BLOCK)) {
-                INSTANCE.get(i, 0).setType(HOUSE_BLOCK);
+            if (!INSTANCE.get(i, 0).leftNodeTypeIs(NodeType.HOUSE_BLOCK)) {
+                INSTANCE.get(i, 0).setType(NodeType.HOUSE_BLOCK);
                 INSTANCE.get(i, HEIGHT - 1).setEqualType(INSTANCE.get(i, 0));
                 continue;
             }
-            if (INSTANCE.get(i, 0).twoLeftNodesTypesAre(HOUSE_BLOCK)) {
+            if (INSTANCE.get(i, 0).twoLeftNodesTypesAre(NodeType.HOUSE_BLOCK)) {
                 continue;
             }
-            if (INSTANCE.get(i, 0).twoRightNodesTypesAre(HOUSE_BLOCK)) {
+            if (INSTANCE.get(i, 0).twoRightNodesTypesAre(NodeType.HOUSE_BLOCK)) {
                 continue;
             }
             INSTANCE.get(i, 0).setRandomAsHouseBlock();
@@ -45,15 +45,15 @@ public class HousesMap {
         }
 
         for (int i = 2; i < HEIGHT - 1; i++) { //set first and last column
-            if (!INSTANCE.get(0, i).upNodeTypeIs(HOUSE_BLOCK)) {
-                INSTANCE.get(0, i).setType(HOUSE_BLOCK);
+            if (!INSTANCE.get(0, i).upNodeTypeIs(NodeType.HOUSE_BLOCK)) {
+                INSTANCE.get(0, i).setType(NodeType.HOUSE_BLOCK);
                 INSTANCE.get(WIDTH - 1, i).setEqualType(INSTANCE.get(0, i));
                 continue;
             }
-            if (INSTANCE.get(0, i).twoUpNodesTypesAre(HOUSE_BLOCK)) {
+            if (INSTANCE.get(0, i).twoUpNodesTypesAre(NodeType.HOUSE_BLOCK)) {
                 continue;
             }
-            if (INSTANCE.get(0, i).twoDownNodesTypesAre(HOUSE_BLOCK)) {
+            if (INSTANCE.get(0, i).twoDownNodesTypesAre(NodeType.HOUSE_BLOCK)) {
                 continue;
             }
             INSTANCE.get(0, i).setRandomAsHouseBlock();
@@ -61,10 +61,10 @@ public class HousesMap {
         }
 
         for (int i = 1; i < WIDTH - 1; i++) { //set second line
-            if (INSTANCE.get(i, 1).leftDownNodeTypeIs(HOUSE_BLOCK) ||
-                    (!INSTANCE.get(i, 0).thisAndLeftNodesTypesAre(HOUSE_BLOCK)) ||
+            if (INSTANCE.get(i, 1).leftDownNodeTypeIs(NodeType.HOUSE_BLOCK) ||
+                    (!INSTANCE.get(i, 0).thisAndLeftNodesTypesAre(NodeType.HOUSE_BLOCK)) ||
                     (INSTANCE.get(i - 1, 1).isHouseBlock() &&
-                            INSTANCE.get(i, 0).thisAndLeftNodesTypesAre(HOUSE_BLOCK))) {
+                            INSTANCE.get(i, 0).thisAndLeftNodesTypesAre(NodeType.HOUSE_BLOCK))) {
                 continue;
             }
             INSTANCE.get(i, 1).setRandomAsHouseBlock();
@@ -80,7 +80,7 @@ public class HousesMap {
 
         for (int i = 2; i < HEIGHT - 2; i++) { //set second column
             if ((INSTANCE.get(1, i).columnNodeAreaContainHouseBlocks() ||
-                    !INSTANCE.get(1, i).twoLeftNodesTypesAre(HOUSE_BLOCK))) {
+                    !INSTANCE.get(1, i).twoLeftNodesTypesAre(NodeType.HOUSE_BLOCK))) {
                 continue;
             }
             INSTANCE.get(1, i).setRandomAsHouseBlock();
@@ -88,7 +88,7 @@ public class HousesMap {
 
         for (int i = 2; i < HEIGHT - 2; i++) {  //set before last column
             if ((INSTANCE.get(WIDTH - 2, i).columnNodeAreaContainHouseBlocks() ||
-                    (!INSTANCE.get(WIDTH - 2, i).getRightNode().thisAndUpNodesTypeIs(HOUSE_BLOCK)))) {
+                    (!INSTANCE.get(WIDTH - 2, i).getRightNode().thisAndUpNodesTypeIs(NodeType.HOUSE_BLOCK)))) {
                 continue;
             }
             INSTANCE.get(WIDTH - 2, i).setRandomAsHouseBlock();
@@ -98,7 +98,7 @@ public class HousesMap {
             for (int i = 2; i < WIDTH - 2; i++) {
                 Node node = INSTANCE.get(i, j);
                 if (node.areaIsEmpty()) {
-                    node.setType(HOUSE_BLOCK);
+                    node.setType(NodeType.HOUSE_BLOCK);
                     continue;
                 }
                 if (node.areaContainHouseBlocks()) {
@@ -111,12 +111,12 @@ public class HousesMap {
         for (int j = 0; j < HEIGHT; j++) {   //fill spaces surrounded not with HOUSE_BLOCKS
             for (int i = 0; i < WIDTH; i++) {
                 Node node = INSTANCE.get(i, j);
-                if (!node.typeIs(HOUSE_BLOCK)) {
+                if (!node.typeIs(NodeType.HOUSE_BLOCK)) {
                     if (node.houseBlockCanBeAdded()) {
-                        node.setType(HOUSE_BLOCK);
+                        node.setType(NodeType.HOUSE_BLOCK);
                     }
                     if (node.partOfAreaIsEmpty()) {
-                        node.setType(HOUSE_BLOCK);
+                        node.setType(NodeType.HOUSE_BLOCK);
                     }
                 }
             }
@@ -127,7 +127,7 @@ public class HousesMap {
     public void unionHouses() {
         for (int j = 0; j < HEIGHT; j++) {
             for (int i = 0; i < WIDTH; i++) {
-                if (INSTANCE.get(i, j).typeIs(HOUSE_BLOCK)) {
+                if (INSTANCE.get(i, j).typeIs(NodeType.HOUSE_BLOCK)) {
                     House house = new House();
                     house.add(INSTANCE.get(i, j));
                     houses.put(INSTANCE.get(i, j), house);
