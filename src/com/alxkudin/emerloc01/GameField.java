@@ -5,13 +5,14 @@ import java.awt.*;
 
 public class GameField extends JPanel {
     public static HousesMap housesMap = new HousesMap();
+    public static WaterSupplyMap waterSupplyMap = new WaterSupplyMap();
 
     public GameField() {
         setBackground(Display.background);
         housesMap.buildHouseBlocks();
         housesMap.unionHouses();
-         WaterSupplyMap.build();
-      //  housesMap.addWaterIntake();
+        waterSupplyMap.build();
+        waterSupplyMap.addWaterIntake();
 
     }
 

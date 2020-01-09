@@ -8,6 +8,49 @@ public class Pipe {
     private List<ArmatureType> parts = new LinkedList<>();
     private List<ArmatureType> intake = new LinkedList<>();
     private Valve valve;
+    //private List<House> intakeHouses = new LinkedList<>();
+
+    private House intakeHouse;
+
+    public House getIntakeHouse() {
+        return intakeHouse;
+    }
+
+    public void setIntakeHouse(House intakeHouse) {
+        this.intakeHouse = intakeHouse;
+    }
+
+    private Node node;
+
+    public Node getNode() {
+        return node;
+    }
+
+    public void setNode(Node node) {
+        this.node = node;
+    }
+/*
+    public List<House> getIntakeHouses() {
+        return intakeHouses;
+    }
+
+    public void setIntakeHouses(List<House> intakeHouses) {
+        this.intakeHouses = intakeHouses;
+    }
+
+    public void addHouse(House house) {
+        if (intakeHouses == null) {
+            intakeHouses = new LinkedList<>();
+        }
+        intakeHouses.add(house);
+    }
+
+
+ */
+
+    public boolean containIntake() {
+        return intake.size() != 0;
+    }
 
     public void setValve(Valve valve) {
         this.valve = valve;
@@ -19,6 +62,10 @@ public class Pipe {
 
     public void addParts(ArmatureType... types) {
         this.parts.addAll(Arrays.asList(types));
+    }
+
+    public void addIntakes(ArmatureType... types) {
+        this.intake.addAll(Arrays.asList(types));
     }
 
     public void setIntake(List<ArmatureType> intake) {

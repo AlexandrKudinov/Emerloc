@@ -6,19 +6,9 @@ import static com.alxkudin.emerloc01.MapStructure.*;
 
 
 public class HousesMap {
-    Map<Node, House> houses = new HashMap<>();
+    public Map<Node, House> houses = new HashMap<>();
 
-/*
-    public House getHouse(Node node) {
-        for (House house : houses.values()) {
-            if (house.contain(node)) return house;
-        }
-        throw new NoSuchElementException();
-    }
- */
-
-
-    public static void buildHouseBlocks() {
+    public void buildHouseBlocks() {
         INSTANCE.get(0, 0).  setType(NodeType.HOUSE_BLOCK);  // set corner nodes type
         INSTANCE.get(0, HEIGHT - 1).setType(NodeType.HOUSE_BLOCK);
         INSTANCE.get(WIDTH - 1, 0).setType(NodeType.HOUSE_BLOCK);
@@ -92,6 +82,7 @@ public class HousesMap {
                 continue;
             }
             INSTANCE.get(WIDTH - 2, i).setRandomAsHouseBlock();
+
         }
 
         for (int j = 2; j < HEIGHT - 2; j++) {  //set the main square
@@ -141,162 +132,5 @@ public class HousesMap {
         System.out.println();
 
     }
-/*
-    public void addWaterIntake() {
-        List<List<House>> unionHouses = new LinkedList<>();
-        Random random = new Random();
-        boolean depend;
-        List<House> sortedHouses = new ArrayList<>(houses.values());
-        sortedHouses.sort((o1, o2) -> {
-            if (o1.getHouseFragments().size() > o2.getHouseFragments().size()) {
-                return 1;
-            } else if (o1.getHouseFragments().size() == o2.getHouseFragments().size()) {
-                return 0;
-            } else return -1;
-        });
-
-
-        for (House house : sortedHouses) {
-            System.out.println(house.toString());
-        }
-
-
-        for (int i = 0; i < sortedHouses.size(); i++) {
-            depend=false;
-            House house = sortedHouses.get(i);
-            List<Fragment> houseFragments = house.getHouseFragments();
-            one:
-            {
-
-                for (int j = 0; j < houseFragments.size(); j++) {
-                    Fragment fragment = map.get(houseFragments.get(j).getX(), houseFragments.get(j).getY());
-                    if ((fragment.getX() != 0 && fragment.leftTypeIs(10)) ||
-                            (fragment.getY() != 0 && fragment.upTypeIs(10)) ||
-                            (fragment.getY() != (MapStructure.HEIGHT - 1) && fragment.downTypeIs(10)) ||
-                            (fragment.getX() != (MapStructure.WIDTH - 1) && fragment.rightTypeIs(10))) {
-                        depend=true;
-                    }
-                }
-
-
-
-
-                Map<Integer, Fragment> waterIntake = new HashMap<>();
-                int count = 0;
-                for (int j = 0; j < houseFragments.size(); j++) {
-                    Fragment fragment = map.get(houseFragments.get(j).getX(), houseFragments.get(j).getY());
-                    //  System.out.println(fragment);
-
-
-                    if (fragment.getX() != 0 && fragment.leftTypeIs(14)) {
-                        Fragment fragment1 = new Fragment(fragment.getLeft().getX(), fragment.getY());
-                        fragment1.setType(40);
-                        waterIntake.put(count++, fragment1);
-                        if (fragment.getDoubleLeft().getX() != 0 && fragment.doubleLeftTypeIs(6) && !depend) {
-                            Fragment fragment2 = new Fragment(fragment.getLeft().getX(), fragment.getY());
-                            fragment2.setType(10);
-                            waterIntake.put(count++, fragment2);
-                        }
-                    }
-
-                    if (fragment.getY() != 0 && fragment.upTypeIs(16)) {
-                        Fragment fragment1 = new Fragment(fragment.getX(), fragment.getUp().getY());
-                        fragment1.setType(42);
-                        waterIntake.put(count++, fragment1);
-                        if (fragment.getDoubleUp().getY() != 0 && fragment.doubleUpTypeIs(6) && !depend) {
-                            Fragment fragment2 = new Fragment(fragment.getX(), fragment.getUp().getY());
-                            fragment2.setType(10);
-                            waterIntake.put(count++, fragment2);
-                        }
-                    }
-
-                    if (fragment.getY() != (HEIGHT - 1) && fragment.downTypeIs(16)) {
-                        Fragment fragment1 = new Fragment(fragment.getX(), fragment.getDown().getY());
-                        fragment1.setType(46);
-                        waterIntake.put(count++, fragment1);
-                        if (fragment.getDoubleDown().getY() != (HEIGHT - 1) && fragment.doubleDownTypeIs(6) && !depend) {
-                            Fragment fragment2 = new Fragment(fragment.getX(), fragment.getDown().getY());
-                            fragment2.setType(10);
-                            waterIntake.put(count++, fragment2);
-                        }
-                    }
-
-                    if (fragment.getX() != (MapStructure.WIDTH - 1) && fragment.rightTypeIs(14)) {
-                        Fragment fragment1 = new Fragment(fragment.getRight().getX(), fragment.getY());
-                        fragment1.setType(44);
-                        waterIntake.put(count++, fragment1);
-                        if (fragment.getDoubleRight().getX() != (WIDTH - 1) && fragment.doubleRightTypeIs(6) && !depend) {
-                            Fragment fragment2 = new Fragment(fragment.getRight().getX(), fragment.getY());
-                            fragment2.setType(10);
-                            waterIntake.put(count++, fragment2);
-                        }
-                    }
-
-
-
-
-
-
-                }
-
-                if (waterIntake.size() == 0) {
-                    for (int j = 0; j < houseFragments.size(); j++) {
-                        Fragment fragment = map.get(houseFragments.get(j).getX(), houseFragments.get(j).getY());
-
-                        if (fragment.getX() != 0 && fragment.leftTypeIs(26)) {
-                            Fragment fragment1 = new Fragment(fragment.getLeft().getX(), fragment.getY());
-                            fragment1.setType(56);
-                            waterIntake.put(count++, fragment1);
-
-                        }
-
-                        if (fragment.getY() != 0 && fragment.upTypeIs(28)) {
-                            Fragment fragment1 = new Fragment(fragment.getX(), fragment.getUp().getY());
-                            fragment1.setType(58);
-                            waterIntake.put(count++, fragment1);
-
-                        }
-
-                        if (fragment.getY() != (HEIGHT - 1) && fragment.downTypeIs(30)) {
-                            Fragment fragment1 = new Fragment(fragment.getX(), fragment.getDown().getY());
-                            fragment1.setType(50);
-                            waterIntake.put(count++, fragment1);
-
-                        }
-
-                        if (fragment.getX() != (MapStructure.WIDTH - 1) && fragment.rightTypeIs(32)) {
-                            Fragment fragment1 = new Fragment(fragment.getRight().getX(), fragment.getY());
-                            fragment1.setType(52);
-                            waterIntake.put(count++, fragment1);
-
-                        }
-
-                    }
-
-                }
-                    System.out.println(count);
-                    System.out.println(waterIntake.size());
-                    //  System.out.println((int) (Math.random()*count));
-                    int rnd = (int) (Math.random() * count);
-
-                    if(waterIntake.get(rnd).getType()==10){
-
-                    }
-
-
-                    System.out.println(rnd);
-
-
-
-
-                    //  System.out.println(map.get(waterIntake.get(rnd).getX(),waterIntake.get(rnd).getY()));
-                    map.get(waterIntake.get(rnd).getX(), waterIntake.get(rnd).getY()).setType(waterIntake.get(rnd).getType());
-                }
-
-            }
-
-        }
-
- */
 
 }
