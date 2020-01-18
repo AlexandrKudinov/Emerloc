@@ -1,14 +1,14 @@
 package com.alxkudin.emerloc01;
 
 public class Valve {
-    private ArmatureType type;
+    private LocType type;
     boolean isOpen;
 
-    public Valve(ArmatureType type){
+    public Valve(LocType type){
         this.type=type;
     }
 
-    public ArmatureType getType() {
+    public LocType getType() {
         return type;
     }
 

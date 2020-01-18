@@ -4,14 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameField extends JPanel {
-    public static HousesMap housesMap = new HousesMap();
     public static WaterSupplyMap waterSupplyMap = new WaterSupplyMap();
 
     public GameField() {
+        Structure structure = Structure.getInstance();
+        structure.bind();
+        structure.buildHouseBlocks();
+        structure.buildHouses();
         setBackground(Display.background);
-        housesMap.buildHouseBlocks();
-        housesMap.unionHouses();
-        waterSupplyMap.build();
+
+        WaterSupplyMap waterSupplyMap = new WaterSupplyMap();
+        waterSupplyMap.addPipes();
         waterSupplyMap.addWaterIntake();
 
     }
@@ -19,6 +22,7 @@ public class GameField extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Display.showHousesMap(g);
+
 
     }
 

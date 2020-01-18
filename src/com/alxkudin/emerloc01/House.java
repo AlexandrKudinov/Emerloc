@@ -3,6 +3,9 @@ package com.alxkudin.emerloc01;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.alxkudin.emerloc01.LocType.*;
+import static com.alxkudin.emerloc01.NodeType.*;
+
 
 public class House {
 
@@ -10,13 +13,13 @@ public class House {
     private List<Node> houseFragments = new LinkedList<>();
     private List<House> allHousesInGroup = new LinkedList<>();
     private List<House> intakeHouses = new LinkedList<>();
-    private List<House> outtakeHouses = new LinkedList<>();
+  //  private List<House> outtakeHouses = new LinkedList<>();
     private int housesInChain = 0;
 
 
-    public List<House> getOuttakeHouses() {
-        return outtakeHouses;
-    }
+//    public List<House> getOuttakeHouses() {
+//        return outtakeHouses;
+//    }
 
     public void setIntakeHouses(List<House> intakeHouses) {
         this.intakeHouses = intakeHouses;
@@ -31,9 +34,9 @@ public class House {
         return allHousesInGroup;
     }
 
-    public void setOuttakeHouses(List<House> outtakeHouses) {
-        this.outtakeHouses = outtakeHouses;
-    }
+//    public void setOuttakeHouses(List<House> outtakeHouses) {
+//        this.outtakeHouses = outtakeHouses;
+//    }
 
     public int getHousesInChain() {
         return housesInChain;
@@ -64,21 +67,21 @@ public class House {
         return houseFragments;
     }
 
-    public void add(Node node) {
+    public void add(Node node, int i, int j, int width, int height) {
         this.houseFragments.add(node);
-        node.setType(NodeType.HOUSE);
+        node.setType(HOUSE);
         node.setHouse(this);
-        if (node.leftNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getX() != 0) {
-            add(node.getLeftNode());
+        if (node.verify(HOUSE_BLOCK, LEFT) && j != 0) {
+            add(node.getLeftNode(), i, j - 1, width, height);
         }
-        if (node.rightNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getX() != MapStructure.WIDTH - 1) {
-            add(node.getRightNode());
+        if (node.verify(HOUSE_BLOCK, RIGHT) && j != width - 1) {
+            add(node.getRightNode(), i, j + 1, width, height);
         }
-        if (node.upNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getY() != 0) {
-            add(node.getUpNode());
+        if (node.verify(HOUSE_BLOCK, UP) && i != 0) {
+            add(node.getUpNode(), i - 1, j, width, height);
         }
-        if (node.downNodeTypeIs(NodeType.HOUSE_BLOCK) && node.getY() != MapStructure.HEIGHT - 1) {
-            add(node.getDownNode());
+        if (node.verify(HOUSE_BLOCK, DOWN) && i != height - 1) {
+            add(node.getDownNode(), i + 1, j, width, height);
         }
     }
 
@@ -104,10 +107,7 @@ public class House {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Node node : houseFragments) {
-            stringBuilder.append(node.getX());
-            stringBuilder.append(" ");
-            stringBuilder.append(node.getY());
-            stringBuilder.append(", ");
+
         }
         return "house contain: " + stringBuilder.toString();
     }

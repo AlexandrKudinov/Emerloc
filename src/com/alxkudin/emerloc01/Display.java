@@ -2,11 +2,12 @@ package com.alxkudin.emerloc01;
 
 import java.awt.*;
 
-import static com.alxkudin.emerloc01.ArmatureType.*;
-import static com.alxkudin.emerloc01.MapStructure.BLOCK;
+import static com.alxkudin.emerloc01.LocType.*;
+import static com.alxkudin.emerloc01.NodeType.HOUSE_BLOCK;
 
 
 public class Display {
+    public static final int BLOCK = 10;
     public static int baseX = 4 * BLOCK;
     public static int baseY = BLOCK;
     public static Color background = new Color(24, 24, 24);
@@ -105,192 +106,53 @@ public class Display {
     }
 
 
+
     public static void showHousesMap(Graphics g) {
-        for (int j = 0; j < 60; j++) {
-            for (int i = 0; i < 120; i++) {
-                Node node = MapStructure.INSTANCE.get(i, j);
+        Node[][] map = Structure.getInstance().getMap();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                Node node = map[i][j];
                 if (node.isHouse()) {
-                    showHouse(g, baseX + i * BLOCK, baseY + j * BLOCK);
+                    showHouse(g, baseX + j * BLOCK, baseY + i * BLOCK);
                     continue;
                 }
 
                 if (node.isPipelineBlock()) {
                     if (node.getPipe().containPart(UP)) {
-                        Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        Display.showUpPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
                     if (node.getPipe().containPart(LEFT)) {
-                        Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        Display.showLeftPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
                     if (node.getPipe().containPart(DOWN)) {
-                        Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        Display.showDownPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
                     if (node.getPipe().containPart(RIGHT)) {
-                        Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                        Display.showRightPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
                     if (node.getPipe().getParts().size() == 4 || (node.getPipe().getParts().size() == 2 && node.getPipe().getIntake().size() == 2)) {
-                        Display.showCross(g, baseX + i * BLOCK, baseY + j * BLOCK);
+                        Display.showCross(g, baseX + j * BLOCK, baseY + i * BLOCK);
                     }
 
                     if(node.getPipe().getValve()!=null){
                         Valve valve = node.getPipe().getValve();
                         if(valve.getType().equals(UP)){
-                            Display.showUpValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                            Display.showUpValve(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                         }
                         if(valve.getType().equals(DOWN)){
-                            Display.showDownValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                            Display.showDownValve(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                         }
                         if(valve.getType().equals(LEFT)){
-                            Display.showLeftValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                            Display.showLeftValve(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                         }
                         if(valve.getType().equals(RIGHT)){
-                            Display.showRightValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
+                            Display.showRightValve(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                         }
                     }
 
                 }
 
-
-/*
-                if (fragment.typeIs(14)) {
-
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                continue;
-                }
-
-                if (fragment.typeIs(16)) {
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-               continue;
-                }
-
-                if (fragment.typeIs(24)) {
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-               continue;
-                }
-
-
-                if (fragment.typeIs(18)) {
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                continue;
-                }
-
-
-                if (fragment.typeIs(22)) {
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                continue;
-                }
-
-
-                if (fragment.typeIs(20)) {
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                continue;
-                }
-
-                if (fragment.typeIs(26)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-
-                    continue;
-                }
-
-                if (fragment.typeIs(28)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showUpValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-                if (fragment.typeIs(30)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                continue;
-                }
-
-                if (fragment.typeIs(32)){
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-                if (fragment.typeIs(40)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-                if (fragment.typeIs(42)){
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-                if (fragment.typeIs(46)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-                if (fragment.typeIs(44)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-
-                if (fragment.typeIs(56)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-
-                    continue;
-                }
-
-                if (fragment.typeIs(58)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showUpValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
-                if (fragment.typeIs(50)){
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showRightValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-                if (fragment.typeIs(52)){
-                    Display.showRightPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showLeftPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showUpPlumb(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    Display.showDownValve(g, baseX + i * BLOCK, baseY + j * BLOCK, true);
-                    continue;
-                }
-
- */
             }
-
 
         }
     }

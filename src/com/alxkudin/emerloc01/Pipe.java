@@ -5,10 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Pipe {
-    private List<ArmatureType> parts = new LinkedList<>();
-    private List<ArmatureType> intake = new LinkedList<>();
+    private List<LocType> parts = new LinkedList<>();
+    private List<LocType> intake = new LinkedList<>();
     private Valve valve;
-    //private List<House> intakeHouses = new LinkedList<>();
 
     private House intakeHouse;
 
@@ -29,24 +28,6 @@ public class Pipe {
     public void setNode(Node node) {
         this.node = node;
     }
-/*
-    public List<House> getIntakeHouses() {
-        return intakeHouses;
-    }
-
-    public void setIntakeHouses(List<House> intakeHouses) {
-        this.intakeHouses = intakeHouses;
-    }
-
-    public void addHouse(House house) {
-        if (intakeHouses == null) {
-            intakeHouses = new LinkedList<>();
-        }
-        intakeHouses.add(house);
-    }
-
-
- */
 
     public boolean containIntake() {
         return intake.size() != 0;
@@ -56,31 +37,31 @@ public class Pipe {
         this.valve = valve;
     }
 
-    public boolean containPart(ArmatureType type) {
+    public boolean containPart(LocType type) {
         return (parts.contains(type) || intake.contains(type));
     }
 
-    public void addParts(ArmatureType... types) {
+    public void addParts(LocType... types) {
         this.parts.addAll(Arrays.asList(types));
     }
 
-    public void addIntakes(ArmatureType... types) {
+    public void addIntakes(LocType... types) {
         this.intake.addAll(Arrays.asList(types));
     }
 
-    public void setIntake(List<ArmatureType> intake) {
+    public void setIntake(List<LocType> intake) {
         this.intake = intake;
     }
 
-    public void setParts(List<ArmatureType> parts) {
+    public void setParts(List<LocType> parts) {
         this.parts = parts;
     }
 
-    public List<ArmatureType> getIntake() {
+    public List<LocType> getIntake() {
         return intake;
     }
 
-    public List<ArmatureType> getParts() {
+    public List<LocType> getParts() {
         return parts;
     }
 
