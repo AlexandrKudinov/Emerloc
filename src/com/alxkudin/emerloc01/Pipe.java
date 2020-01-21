@@ -8,8 +8,26 @@ public class Pipe {
     private List<LocType> parts = new LinkedList<>();
     private List<LocType> intake = new LinkedList<>();
     private Valve valve;
-
+    private Node node;
     private House intakeHouse;
+    private boolean majorPartsIsTaken;
+    private boolean minorPartsIsTaken;
+
+    public void setMinorPartsIsTaken(boolean minorPartsIsTaken) {
+        this.minorPartsIsTaken = minorPartsIsTaken;
+    }
+
+    public boolean majorPartsIsTaken() {
+        return majorPartsIsTaken;
+    }
+
+    public boolean minorPartsIsTaken() {
+        return minorPartsIsTaken;
+    }
+
+    public void setMajorPartsIsTaken(boolean majorPartsIsTaken) {
+        this.majorPartsIsTaken = majorPartsIsTaken;
+    }
 
     public House getIntakeHouse() {
         return intakeHouse;
@@ -19,7 +37,6 @@ public class Pipe {
         this.intakeHouse = intakeHouse;
     }
 
-    private Node node;
 
     public Node getNode() {
         return node;
@@ -35,6 +52,10 @@ public class Pipe {
 
     public void setValve(Valve valve) {
         this.valve = valve;
+    }
+
+    public boolean containValve() {
+        return valve != null;
     }
 
     public boolean containPart(LocType type) {

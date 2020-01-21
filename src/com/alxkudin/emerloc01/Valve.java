@@ -16,7 +16,7 @@ public class Valve {
         return isOpen;
     }
 
-    public void setOpen(boolean open) {
+    public void setStage(boolean open) {
         isOpen = open;
     }
 }

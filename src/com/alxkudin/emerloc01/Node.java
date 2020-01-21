@@ -21,6 +21,8 @@ public class Node {
     private int i;
     private int j;
 
+
+
     public int getI() {
         return i;
     }
@@ -79,10 +81,6 @@ public class Node {
         return nodeType;
     }
 
-
-    public boolean isHouseBlock() {
-        return nodeType == HOUSE_BLOCK ? true : false;
-    }
 
     public boolean isHouse() {
         return nodeType == HOUSE;

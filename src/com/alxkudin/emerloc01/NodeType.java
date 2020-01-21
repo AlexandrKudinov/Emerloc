@@ -1,7 +1,7 @@
 package com.alxkudin.emerloc01;
 
 public enum  NodeType {
-    HOUSE_BLOCK(1), HOUSE(2), PIPELINE_BLOCK(0), PIPELINE(5) ;
+    HOUSE_BLOCK(1), HOUSE(2), PIPELINE_BLOCK(0), PIPELINE(5), PIPELINE_PART(10) ;
     private int value;
 
     NodeType(int value) {

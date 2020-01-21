@@ -1,14 +1,19 @@
 package com.alxkudin.emerloc01;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 import static com.alxkudin.emerloc01.LocType.*;
 import static com.alxkudin.emerloc01.NodeType.HOUSE;
 import static com.alxkudin.emerloc01.NodeType.PIPELINE_BLOCK;
 
 public class WaterSupplyMap {
+    private final int MAX_HOUSES_IN_GROUP = 7;
     Structure structure = Structure.getInstance();
     Node[][] map = structure.getMap();
+
+    List<Valve> valves = new LinkedList<>();
+
 
     public void addPipes() {
         for (int i = 0; i < map.length; i++) {
@@ -27,12 +32,14 @@ public class WaterSupplyMap {
                         continue;
                     }
 
-                    if (!node.verify(HOUSE,LEFT) &&  //up valve
-                            !node.verify(HOUSE,UP) &&
-                            !node.verify(HOUSE,RIGHT) &&
-                            (node.verify(HOUSE,DOWN))) {
+                    if (!node.verify(HOUSE, LEFT) &&  //up valve
+                            !node.verify(HOUSE, UP) &&
+                            !node.verify(HOUSE, RIGHT) &&
+                            (node.verify(HOUSE, DOWN))) {
                         pipe.addParts(UP, LEFT, RIGHT);
-                        pipe.setValve(new Valve(UP));
+                        Valve valve = new Valve(UP);
+                        pipe.setValve(valve);
+                        valves.add(valve);
                         continue;
                     }
 
@@ -47,12 +54,13 @@ public class WaterSupplyMap {
                     }
 
 
-                    if (!node.verify(HOUSE,DOWN) && !node.verify(HOUSE,RIGHT) && // down valve
-                            !node.verify(HOUSE,LEFT) &&
-                            (node.verify(HOUSE,UP))) {
+                    if (!node.verify(HOUSE, DOWN) && !node.verify(HOUSE, RIGHT) && // down valve
+                            !node.verify(HOUSE, LEFT) &&
+                            (node.verify(HOUSE, UP))) {
                         pipe.addParts(DOWN, LEFT, RIGHT);
-                        pipe.setValve(new Valve(DOWN));
-
+                        Valve valve = new Valve(DOWN);
+                        pipe.setValve(valve);
+                        valves.add(valve);
                         continue;
                     }
 
@@ -91,7 +99,9 @@ public class WaterSupplyMap {
                             !node.verify(HOUSE, DOWN) && !node.verify(HOUSE, LEFT) &&
                             (node.verify(HOUSE, LEFT, UP) || node.verify(HOUSE, LEFT, DOWN))) {
                         pipe.addParts(DOWN, LEFT, UP);
-                        pipe.setValve(new Valve(LEFT));
+                        Valve valve = new Valve(LEFT);
+                        pipe.setValve(valve);
+                        valves.add(valve);
                         continue;
                     }
 
@@ -100,7 +110,9 @@ public class WaterSupplyMap {
                             !node.verify(HOUSE, UP) && !node.verify(HOUSE, DOWN) &&
                             (node.verify(HOUSE, RIGHT, UP) || node.verify(HOUSE, RIGHT, DOWN))) {
                         pipe.addParts(DOWN, RIGHT, UP);
-                        pipe.setValve(new Valve(RIGHT));
+                        Valve valve = new Valve(RIGHT);
+                        pipe.setValve(valve);
+                        valves.add(valve);
                         continue;
                     }
 
@@ -109,10 +121,7 @@ public class WaterSupplyMap {
                 }
             }
         }
-
-
     }
-
 
 
     public void addWaterIntake() {
@@ -126,174 +135,180 @@ public class WaterSupplyMap {
                 return 0;
             } else return -1;
         });
-        System.out.println(sortedHouses.size());
+
+
         for (House house : sortedHouses) {
-            if (house.getAllHousesInGroup().size() == 4) {
+            if (house.getAllHousesInGroup().size() >= MAX_HOUSES_IN_GROUP) {
                 allHousesInGroupNotFull = false;
             }
             List<Node> houseFragments = house.getHouseFragments();
-            List<Pipe> permIntakes = new LinkedList<>();
+            Map<Pipe, Node> permIntakes = new HashMap<>();
             unionHouses.addAll(house.getAllHousesInGroup());
 
             for (Node node : houseFragments) {
-                if (node.getJ() != 0 && node.verify(PIPELINE_BLOCK,LEFT) &&
+                if (node.getJ() != 0 && node.verify(PIPELINE_BLOCK, LEFT) &&
                         node.getLeftNode().getPipe().getIntake().isEmpty()) {
                     Pipe pipe = new Pipe();
                     pipe.setParts(node.getLeftNode().getPipe().getParts());
                     pipe.setNode(node.getLeftNode());
                     pipe.addIntakes(RIGHT);
                     pipe.setIntakeHouse(house);
-                    permIntakes.add(pipe);
+                    permIntakes.put(pipe, node);
                     if (allHousesInGroupNotFull && node.getLeftNode().getJ() != 0 &&
-                            node.verify(HOUSE,LEFT,LEFT) &&
+                            node.verify(HOUSE, LEFT, LEFT) &&
                             !unionHouses.contains(node.getLeftNode().getLeftNode().getHouse()) &&
-                            node.getLeftNode().getLeftNode().getHouse().getAllHousesInGroup().size() <= 4) {
+                            node.getLeftNode().getLeftNode().getHouse().getAllHousesInGroup().size() <= MAX_HOUSES_IN_GROUP) {
                         Pipe pipe1 = new Pipe();
                         pipe1.setParts(node.getLeftNode().getPipe().getParts());
                         pipe1.addIntakes(RIGHT, LEFT);
                         pipe1.setNode(node.getLeftNode());
                         pipe1.setIntakeHouse(house);
-                        permIntakes.add(pipe1);
+                        permIntakes.put(pipe1, node);
                     }
                 }
 
                 if (node.getJ() != (structure.getWidth() - 1) &&
-                        node.verify(PIPELINE_BLOCK,RIGHT) &&
+                        node.verify(PIPELINE_BLOCK, RIGHT) &&
                         node.getRightNode().getPipe().getIntake().isEmpty()) {
                     Pipe pipe = new Pipe();
                     pipe.setParts(node.getRightNode().getPipe().getParts());
                     pipe.addIntakes(LEFT);
                     pipe.setNode(node.getRightNode());
                     pipe.setIntakeHouse(house);
-                    permIntakes.add(pipe);
+                    permIntakes.put(pipe, node);
                     if (allHousesInGroupNotFull &&
                             node.getRightNode().getJ() != (structure.getWidth() - 1) &&
-                            node.verify(HOUSE,RIGHT,RIGHT) &&
+                            node.verify(HOUSE, RIGHT, RIGHT) &&
                             !unionHouses.contains(node.getRightNode().getRightNode().getHouse()) &&
-                            node.getRightNode().getRightNode().getHouse().getAllHousesInGroup().size() <= 4) {
+                            node.getRightNode().getRightNode().getHouse().getAllHousesInGroup().size() <= MAX_HOUSES_IN_GROUP) {
                         Pipe pipe1 = new Pipe();
                         pipe1.setParts(node.getRightNode().getPipe().getParts());
                         pipe1.addIntakes(RIGHT, LEFT);
                         pipe1.setNode(node.getRightNode());
                         pipe1.setIntakeHouse(house);
-                        permIntakes.add(pipe1);
+                        permIntakes.put(pipe1, node);
                     }
                 }
 
-                if (node.getI() != 0 && node.verify(PIPELINE_BLOCK,UP) &&
+                if (node.getI() != 0 && node.verify(PIPELINE_BLOCK, UP) &&
                         node.getUpNode().getPipe().getIntake().isEmpty()) {
                     Pipe pipe = new Pipe();
                     pipe.setParts(node.getUpNode().getPipe().getParts());
                     pipe.addIntakes(DOWN);
                     pipe.setNode(node.getUpNode());
                     pipe.setIntakeHouse(house);
-                    permIntakes.add(pipe);
+                    permIntakes.put(pipe, node);
 
                     if (allHousesInGroupNotFull && node.getUpNode().getI() != 0 &&
-                            node.verify(HOUSE,UP,UP) &&
+                            node.verify(HOUSE, UP, UP) &&
                             !unionHouses.contains(node.getUpNode().getUpNode().getHouse()) &&
-                            node.getUpNode().getUpNode().getHouse().getAllHousesInGroup().size() <= 4) {
+                            node.getUpNode().getUpNode().getHouse().getAllHousesInGroup().size() <= MAX_HOUSES_IN_GROUP) {
                         Pipe pipe1 = new Pipe();
                         pipe1.setParts(node.getUpNode().getPipe().getParts());
                         pipe1.addIntakes(UP, DOWN);
                         pipe1.setNode(node.getUpNode());
                         pipe1.setIntakeHouse(house);
-                        permIntakes.add(pipe1);
+                        permIntakes.put(pipe1, node);
                     }
                 }
 
                 if (node.getI() != (structure.getHeight() - 1) &&
-                        node.verify(PIPELINE_BLOCK,DOWN) &&
+                        node.verify(PIPELINE_BLOCK, DOWN) &&
                         node.getDownNode().getPipe().getIntake().isEmpty()) {
                     Pipe pipe = new Pipe();
                     pipe.setParts(node.getDownNode().getPipe().getParts());
                     pipe.addIntakes(UP);
                     pipe.setNode(node.getDownNode());
                     pipe.setIntakeHouse(house);
-                    permIntakes.add(pipe);
+                    permIntakes.put(pipe, node);
                     if (allHousesInGroupNotFull &&
                             node.getDownNode().getI() != (structure.getHeight() - 1) &&
-                            node.verify(HOUSE,DOWN,DOWN) &&
+                            node.verify(HOUSE, DOWN, DOWN) &&
                             !unionHouses.contains(node.getDownNode().getDownNode().getHouse()) &&
-                            node.getDownNode().getDownNode().getHouse().getAllHousesInGroup().size() <= 4) {
+                            node.getDownNode().getDownNode().getHouse().getAllHousesInGroup().size() <= MAX_HOUSES_IN_GROUP) {
                         Pipe pipe1 = new Pipe();
                         pipe1.setParts(node.getDownNode().getPipe().getParts());
                         pipe1.addIntakes(UP, DOWN);
                         pipe1.setNode(node.getDownNode());
                         pipe1.setIntakeHouse(house);
-                        permIntakes.add(pipe1);
+                        permIntakes.put(pipe1, node);
                     }
                 }
             }
 
             int rnd = (int) (Math.random() * permIntakes.size());
-            Pipe pipe = permIntakes.get(rnd);
-
-           // house.addToHouseGroup();
-           // pipe.getNode().getPipe().setIntakeHouse(house);
-          //  pipe.getNode().getPipe().setIntake(pipe.getIntake());
-          //  pipe.getNode().setPipe(pipe);
+            List<Pipe> pipeList = new ArrayList<>(permIntakes.keySet());
+            Pipe pipe = pipeList.get(rnd);
 
             if (pipe.getIntake().size() == 2) {
-                House majorHouse = null;
-                if (pipe.getIntake().contains(LEFT) && pipe.getIntake().contains(RIGHT)) {
-                    if (pipe.getNode().getLeftNode().getHouse() != pipe.getIntakeHouse()) {
-                        majorHouse = pipe.getNode().getLeftNode().getHouse();
+                House mainHouse = null;
+                Node node = pipe.getNode();
+                if (pipe.getIntake().contains(LEFT)) {
+                    if (node.getLeftNode().getHouse().equals(house)) {
+                        mainHouse = node.getRightNode().getHouse();
                     } else {
-                        majorHouse = pipe.getNode().getRightNode().getHouse();
+                        mainHouse = node.getLeftNode().getHouse();
                     }
                 }
-                if (pipe.getIntake().contains(UP) && pipe.getIntake().contains(DOWN)) {
-                    if (pipe.getNode().getUpNode().getHouse() != pipe.getIntakeHouse()) {
-                        majorHouse = pipe.getNode().getUpNode().getHouse();
+                if (pipe.getIntake().contains(UP)) {
+                    if (node.getUpNode().getHouse().equals(house)) {
+                        mainHouse = node.getDownNode().getHouse();
                     } else {
-                        majorHouse = pipe.getNode().getDownNode().getHouse();
+                        mainHouse = node.getUpNode().getHouse();
                     }
                 }
-               // majorHouse.getOuttakeHouses().add(house);
-                house.getIntakeHouses().add(majorHouse);
-                for (House house1 : house.getAllHousesInGroup()) {
-                    house1.getAllHousesInGroup().add(majorHouse);
-                    house1.getAllHousesInGroup().addAll(majorHouse.getAllHousesInGroup());
-                }
-                for (House house1 : majorHouse.getAllHousesInGroup()) {
-                    house1.getAllHousesInGroup().add(house);
-                    house1.getAllHousesInGroup().addAll(house.getAllHousesInGroup());
-                }
-                house.getAllHousesInGroup().addAll(majorHouse.getAllHousesInGroup());
-                majorHouse.getAllHousesInGroup().addAll(house.getAllHousesInGroup());
-                house.getAllHousesInGroup().add(majorHouse);
-                majorHouse.getAllHousesInGroup().add(house);
-
-
+                house.addHouseInGroup(mainHouse);
+                mainHouse.getOuttakeHouses().add(house);
+                house.getIntakeHouses().add(mainHouse);
             }
-            house.addToHouseGroup();
-            pipe.getNode().getPipe().setIntakeHouse(house);
-            pipe.getNode().getPipe().setIntake(pipe.getIntake());
-
-            for (House house22 : sortedHouses) {
-                for (int i = 0; i < house22.getAllHousesInGroup().size(); i++) {
-                    House house2 = house22.getAllHousesInGroup().get(i);
-                    for (int j = i + 1; j < house22.getAllHousesInGroup().size(); j++) {
-                        if (house2 == house22.getAllHousesInGroup().get(j)) {
-                            house22.getAllHousesInGroup().remove(j);
-                            j--;
-                        }
-                    }
-
-                }
-            }
-
-
-
-
+            Pipe actualPipe = pipe.getNode().getPipe();
+            actualPipe.setIntakeHouse(house);
+            actualPipe.setIntake(pipe.getIntake());
+            house.setPipe(actualPipe);
+            unionHouses.clear();
         }
 
 
-
+        for (House house : sortedHouses) {
+            System.out.println("Base house: " + house + " dep size: " + house.getAllHousesInGroup().size());
+            System.out.print("Dependant houses ");
+            for (House house1 : house.getAllHousesInGroup()) {
+                System.out.print(house1 + " , ");
+            }
+            System.out.println();
+            System.out.print("Outake houses ");
+            for (House house1 : house.getOuttakeHouses()) {
+                System.out.print(house1 + " , ");
+            }
+            System.out.println();
+            System.out.print("Intake houses ");
+            for (House house1 : house.getIntakeHouses()) {
+                System.out.print(house1 + " , ");
+            }
+            System.out.println();
+            System.out.println();
+        }
 
     }
+
+    List<Pipeline> pipelines = new LinkedList<>();
+
+    public void pipelineUnion() {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                Node node = map[i][j];
+                if (node.getType() == PIPELINE_BLOCK && node.getPipe().containValve()) {
+                   Pipeline pipeline = new Pipeline();
+                   LocType type = node.getPipe().getValve().getType();
+                   pipeline.setCloseType(getOppositeType(type));
+                   pipeline.generate(node,type);
+                }
+            }
+        }
+    }
+
 }
+
 
 
 
