@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13ec7309-1575-41a6-bfb4-c62406f423b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/House.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/WaterSupplyMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/WaterSupplyMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/LocType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/LocType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Valve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Valve.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,21 +24,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="629">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#520#521#0" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#646#647#0" expanded="true" />
-                <element signature="e#686#687#0" expanded="true" />
-                <element signature="e#546#547#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#941#942#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#488#489#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#793#794#0" expanded="true" />
+                <element signature="e#878#879#0" expanded="true" />
+                <element signature="e#1003#1004#0" expanded="true" />
+                <element signature="e#1074#1075#0" expanded="true" />
+                <element signature="e#1173#1174#0" expanded="true" />
+                <element signature="e#1230#1231#0" expanded="true" />
+                <element signature="e#1300#1301#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
+                <element signature="e#1448#1449#0" expanded="true" />
+                <element signature="e#1566#1567#0" expanded="true" />
+                <element signature="e#1667#1668#0" expanded="true" />
+                <element signature="e#1771#1772#0" expanded="true" />
+                <element signature="e#1858#1859#0" expanded="true" />
+                <element signature="e#1941#1942#0" expanded="true" />
+                <element signature="e#2010#2011#0" expanded="true" />
+                <element signature="e#2077#2078#0" expanded="true" />
+                <element signature="e#2136#2137#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -52,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+            <state relative-caret-position="358">
+              <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,18 +77,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+            <state relative-caret-position="400">
+              <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#431#432#0" expanded="true" />
-                <element signature="e#897#898#0" expanded="true" />
-                <element signature="e#966#967#0" expanded="true" />
-                <element signature="e#1731#1732#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
+                <element signature="e#4316#4317#0" expanded="true" />
+                <element signature="e#4401#4402#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-204">
+              <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="306">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,12 +146,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java">
+        <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="278" selection-start-line="278" selection-end-line="278" />
+            <state relative-caret-position="539">
+              <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1018#1019#0" expanded="true" />
+                <element signature="e#1067#1068#0" expanded="true" />
+                <element signature="e#1850#1851#0" expanded="true" />
+                <element signature="e#1906#1907#0" expanded="true" />
+                <element signature="e#1992#1993#0" expanded="true" />
+                <element signature="e#2183#2184#0" expanded="true" />
+                <element signature="e#2256#2257#0" expanded="true" />
+                <element signature="e#2360#2361#0" expanded="true" />
+                <element signature="e#2453#2454#0" expanded="true" />
+                <element signature="e#2528#2529#0" expanded="true" />
+                <element signature="e#2587#2588#0" expanded="true" />
+                <element signature="e#2677#2678#0" expanded="true" />
+                <element signature="e#2745#2746#0" expanded="true" />
+                <element signature="e#2819#2820#0" expanded="true" />
+                <element signature="e#2885#2886#0" expanded="true" />
+                <element signature="e#2959#2960#0" expanded="true" />
+                <element signature="e#3037#3038#0" expanded="true" />
+                <element signature="e#3097#3098#0" expanded="true" />
+                <element signature="e#3157#3158#0" expanded="true" />
+                <element signature="e#3219#3220#0" expanded="true" />
+                <element signature="e#3275#3276#0" expanded="true" />
+                <element signature="e#3394#3395#0" expanded="true" />
+                <element signature="e#3490#3491#0" expanded="true" />
+                <element signature="e#3881#3882#0" expanded="true" />
+                <element signature="e#3927#3928#0" expanded="true" />
+                <element signature="e#3961#3962#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,7 +187,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -189,17 +240,17 @@
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Location.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/ArmatureType.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Exp.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/House.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Valve.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/LocType.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java" />
+        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java" />
+        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java" />
+        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java" />
+        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java" />
       </list>
     </option>
   </component>
@@ -319,7 +370,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.12388664" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.19919029" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.24939272" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -331,7 +382,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15555556" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11794872" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.124786325" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -399,43 +450,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/HousesMap.java" />
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/ArmatureType.java" />
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/MapStructure.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#3547#3548#0" expanded="true" />
-            <element signature="e#3598#3599#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="278" selection-start-line="278" selection-end-line="278" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-339">
-          <caret line="121" column="56" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -449,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/LocType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -463,32 +474,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java">
+    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="629">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#546#547#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#1771#1772#0" expanded="true" />
+            <element signature="e#1858#1859#0" expanded="true" />
+            <element signature="e#1941#1942#0" expanded="true" />
+            <element signature="e#2010#2011#0" expanded="true" />
+            <element signature="e#2077#2078#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -521,10 +559,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1850#1851#0" expanded="true" />
+            <element signature="e#1906#1907#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2183#2184#0" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2360#2361#0" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
+            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
+            <element signature="e#2745#2746#0" expanded="true" />
+            <element signature="e#2819#2820#0" expanded="true" />
+            <element signature="e#2885#2886#0" expanded="true" />
+            <element signature="e#2959#2960#0" expanded="true" />
+            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#3097#3098#0" expanded="true" />
+            <element signature="e#3157#3158#0" expanded="true" />
+            <element signature="e#3219#3220#0" expanded="true" />
+            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#3394#3395#0" expanded="true" />
+            <element signature="e#3490#3491#0" expanded="true" />
+            <element signature="e#3881#3882#0" expanded="true" />
+            <element signature="e#3927#3928#0" expanded="true" />
+            <element signature="e#3961#3962#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        <state relative-caret-position="358">
+          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -533,15 +607,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+        <state relative-caret-position="400">
+          <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1816#1817#0" expanded="true" />
+            <element signature="e#4316#4317#0" expanded="true" />
+            <element signature="e#4401#4402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

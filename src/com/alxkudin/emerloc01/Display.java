@@ -109,6 +109,8 @@ public class Display {
 
     public static void showHousesMap(Graphics g) {
         Node[][] map = Structure.getInstance().getMap();
+
+
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 Node node = map[i][j];
@@ -117,22 +119,44 @@ public class Display {
                     continue;
                 }
 
-                if (node.isPipelineBlock()) {
-                    if (node.getPipe().containPart(UP)) {
+                if (node.isPipeline() ) {
+                    if (node.getPipe().partsContain(UP)) {
                         Display.showUpPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
-                    if (node.getPipe().containPart(LEFT)) {
+                    if (node.getPipe().partsContain(LEFT)) {
                         Display.showLeftPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
-                    if (node.getPipe().containPart(DOWN)) {
+                    if (node.getPipe().partsContain(DOWN)) {
                         Display.showDownPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
-                    if (node.getPipe().containPart(RIGHT)) {
+                    if (node.getPipe().partsContain(RIGHT)) {
                         Display.showRightPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, true);
                     }
                     if (node.getPipe().getParts().size() == 4 || (node.getPipe().getParts().size() == 2 && node.getPipe().getIntake().size() == 2)) {
                         Display.showCross(g, baseX + j * BLOCK, baseY + i * BLOCK);
                     }
+
+
+
+
+                    if (node.getPipe().intakeContain(UP)) {
+                        Display.showUpPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, false);
+                    }
+                    if (node.getPipe().intakeContain(LEFT)) {
+                        Display.showLeftPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, false);
+                    }
+                    if (node.getPipe().intakeContain(DOWN)) {
+                        Display.showDownPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, false);
+                    }
+                    if (node.getPipe().intakeContain(RIGHT)) {
+                        Display.showRightPlumb(g, baseX + j * BLOCK, baseY + i * BLOCK, false);
+                    }
+                    if (node.getPipe().getParts().size() == 4 || (node.getPipe().getParts().size() == 2 && node.getPipe().getIntake().size() == 2)) {
+                        Display.showCross(g, baseX + j * BLOCK, baseY + i * BLOCK);
+                    }
+
+
+
 
                     if(node.getPipe().getValve()!=null){
                         Valve valve = node.getPipe().getValve();

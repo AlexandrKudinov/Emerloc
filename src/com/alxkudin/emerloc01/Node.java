@@ -21,6 +21,23 @@ public class Node {
     private int i;
     private int j;
 
+    public Node getNodeByType(LocType type) {
+        Node node = null;
+        switch (type) {
+            case DOWN:
+                node = getDownNode();
+                break;
+            case UP:
+                node = getUpNode();
+                break;
+            case RIGHT:
+                node = getRightNode();
+                break;
+            case LEFT:
+                node = getLeftNode();
+        }
+        return node;
+    }
 
 
     public int getI() {
@@ -31,30 +48,30 @@ public class Node {
         return j;
     }
 
-   public Node(int i,int j){
-        this.i=i;
-        this.j=j;
-   }
+    public Node(int i, int j) {
+        this.i = i;
+        this.j = j;
+    }
 
-    public boolean verify(NodeType type, LocType ... locTypes) {
-            Node node = this;
-            for (LocType locType : locTypes) {
-                if (locType == UP) {
-                    node = node.getUpNode();
-                    continue;
-                }
-                if (locType == LEFT) {
-                    node = node.getLeftNode();
-                    continue;
-                }
-                if (locType == RIGHT) {
-                    node = node.getRightNode();
-                    continue;
-                }
-                if (locType == DOWN) {
-                    node = node.getDownNode();
-                }
+    public boolean verify(NodeType type, LocType... locTypes) {
+        Node node = this;
+        for (LocType locType : locTypes) {
+            if (locType == UP) {
+                node = node.getUpNode();
+                continue;
             }
+            if (locType == LEFT) {
+                node = node.getLeftNode();
+                continue;
+            }
+            if (locType == RIGHT) {
+                node = node.getRightNode();
+                continue;
+            }
+            if (locType == DOWN) {
+                node = node.getDownNode();
+            }
+        }
         return node.getType() == type;
     }
 
@@ -164,6 +181,11 @@ public class Node {
     @Override
     public int hashCode() {
         return Objects.hash(nodeType, i, j);
+    }
+
+    @Override
+    public String toString() {
+        return "( "+i +" , "+j+" )";
     }
 }
 

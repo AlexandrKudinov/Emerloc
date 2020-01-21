@@ -4,8 +4,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 import static com.alxkudin.emerloc01.LocType.*;
-import static com.alxkudin.emerloc01.NodeType.HOUSE;
-import static com.alxkudin.emerloc01.NodeType.PIPELINE_BLOCK;
+import static com.alxkudin.emerloc01.NodeType.*;
 
 public class WaterSupplyMap {
     private final int MAX_HOUSES_IN_GROUP = 7;
@@ -294,17 +293,38 @@ public class WaterSupplyMap {
     List<Pipeline> pipelines = new LinkedList<>();
 
     public void pipelineUnion() {
+
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 Node node = map[i][j];
-                if (node.getType() == PIPELINE_BLOCK && node.getPipe().containValve()) {
-                   Pipeline pipeline = new Pipeline();
-                   LocType type = node.getPipe().getValve().getType();
-                   pipeline.setCloseType(getOppositeType(type));
-                   pipeline.generate(node,type);
+                if(node.isPipelineBlock()){
+                    System.out.print(1);
+                }
+                if(node.getType()==HOUSE){
+                    System.out.print(2);
                 }
             }
+            System.out.println();
         }
+
+
+
+
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                Node node = map[i][j];
+                if (node.getType() == PIPELINE_BLOCK && node.getPipe().containValve() &&
+                        !node.getPipe().getMajorPartsIsTaken()) {
+                    Pipeline pipeline = new Pipeline();
+                    LocType type = node.getPipe().getValve().getType();
+                    pipeline.generate(node, type);
+                    pipelines.add(pipeline);
+                    System.out.println();
+                }
+
+            }
+        }
+        System.out.println(pipelines.size());
     }
 
 }

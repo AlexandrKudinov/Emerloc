@@ -13,15 +13,25 @@ public class Pipe {
     private boolean majorPartsIsTaken;
     private boolean minorPartsIsTaken;
 
+    public boolean intakeContain(LocType type){
+        return  intake.contains(type);
+    }
+
+
+    public boolean partsContain(LocType type){
+        return  parts.contains(type);
+    }
+
+
     public void setMinorPartsIsTaken(boolean minorPartsIsTaken) {
         this.minorPartsIsTaken = minorPartsIsTaken;
     }
 
-    public boolean majorPartsIsTaken() {
+    public boolean getMajorPartsIsTaken() {
         return majorPartsIsTaken;
     }
 
-    public boolean minorPartsIsTaken() {
+    public boolean getMinorPartsIsTaken() {
         return minorPartsIsTaken;
     }
 
@@ -44,10 +54,6 @@ public class Pipe {
 
     public void setNode(Node node) {
         this.node = node;
-    }
-
-    public boolean containIntake() {
-        return intake.size() != 0;
     }
 
     public void setValve(Valve valve) {

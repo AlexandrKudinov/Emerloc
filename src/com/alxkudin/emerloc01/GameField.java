@@ -16,6 +16,7 @@ public class GameField extends JPanel {
         WaterSupplyMap waterSupplyMap = new WaterSupplyMap();
         waterSupplyMap.addPipes();
         waterSupplyMap.addWaterIntake();
+        waterSupplyMap.pipelineUnion();
 
     }
 
