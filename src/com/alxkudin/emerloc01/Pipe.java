@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.alxkudin.emerloc01.NodeType.*;
+
 public class Pipe {
     private List<LocType> parts = new LinkedList<>();
     private List<LocType> intake = new LinkedList<>();
@@ -12,6 +14,24 @@ public class Pipe {
     private House intakeHouse;
     private boolean majorPartsIsTaken;
     private boolean minorPartsIsTaken;
+
+
+    public void ifMajorTakenSetPipeline(){
+        if (getMajorPartsIsTaken()) {
+            getNode().setType(PIPELINE);
+        }
+    }
+
+
+    public boolean containFourParts(){
+        return (parts.size()==4)||(parts.size()==2 && intake.size()==2);
+    }
+
+    public void ifMinorTakenSetPipeline(){
+        if (getMinorPartsIsTaken()) {
+            getNode().setType(PIPELINE);
+        }
+    }
 
     public boolean intakeContain(LocType type){
         return  intake.contains(type);

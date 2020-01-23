@@ -9,12 +9,18 @@ public class Pipeline {
     private Map<Pipe, List<LocType>> pipes = new HashMap<>();
     private List<House> houses = new LinkedList<>();
 
+    public Map<Pipe, List<LocType>> getPipes() {
+        return pipes;
+    }
 
-    private boolean isOpen;
 
-    private boolean exit = true;
+    private boolean open;
 
-    private List<LocType> locTypes(LocType... locTypes) {
+    public boolean isOpen() {
+        return open;
+    }
+
+    private List<LocType> locTypesList(LocType... locTypes) {
         List<LocType> locTypeList = new LinkedList<>();
         for (LocType locType : locTypes) {
             locTypeList.add(locType);
@@ -22,92 +28,141 @@ public class Pipeline {
         return locTypeList;
     }
 
-    private void updateStatus() {
+    public void updateStatus() {
         Valve valve;
         for (Pipe pipe : pipes.keySet()) {
             if (pipe.containValve()) {
                 valve = pipe.getValve();
-                if (!valve.isOpen) {
+                if (!valve.isOpen()) {
                     continue;
                 }
-                isOpen = true;
+                open = true;
                 return;
             }
         }
-        isOpen = false;
+        open = false;
+    }
+
+
+    private void addToPipesMap(Pipe pipe, LocType... types) {
+        if (pipes.containsKey(pipe)) {
+            List<LocType> locTypes = pipes.get(pipe);
+            for (LocType locType : types) {
+                locTypes.add(locType);
+            }
+            pipes.put(pipe, locTypes);
+        } else {
+            pipes.put(pipe, locTypesList(types));
+        }
+    }
+
+
+    public void addDepHouses() {
+        List<House> newHouses = new LinkedList<>();
+        for (House house : houses) {
+            newHouses.addAll(house.getAllHousesInGroup());
+        }
+        houses.addAll(newHouses);
+        for (House house : houses) {
+            if (!pipes.containsKey(house.getPipe())) {
+                pipes.put(house.getPipe(), house.getPipe().getIntake());
+            } else {
+                List<LocType> types = pipes.get(house.getPipe());
+                types.addAll(house.getPipe().getIntake());
+                pipes.put(house.getPipe(), types);
+            }
+        }
+        
     }
 
 
     public void generate(Node node, LocType type) {
         System.out.print(node + ",  ");
         Pipe pipe = node.getPipe();
-     // if (pipe != null) {
-            if (pipe.containValve()) {
-                if (getOppositeType(type) == pipe.getValve().getType()) {
-                    pipes.put(pipe, locTypes(type));
-                    pipe.setMajorPartsIsTaken(true);
-                    if (pipe.getMinorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    return;
-                } else if (pipes.size() == 0) {
-                    pipes.put(pipe, locTypes(type));
-                    pipe.setMajorPartsIsTaken(true);
-                    if (pipe.getMinorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    generate(node.getNodeByType(type), type);
-                } else if (pipe.getValve().getType() == RIGHT || pipe.getValve().getType() == LEFT) {
-                    pipes.put(pipe, locTypes(UP, DOWN));
-                    pipe.setMinorPartsIsTaken(true);
-                    if (pipe.getMajorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    generate(node.getNodeByType(type), type);
-                } else if (pipe.getValve().getType() == UP || pipe.getValve().getType() == DOWN) {
-                    pipes.put(pipe, locTypes(LEFT, RIGHT));
-                    pipe.setMinorPartsIsTaken(true);
-                    if (pipe.getMajorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    generate(node.getNodeByType(type), type);
+        if (pipe.containValve()) {
+            if (getOppositeType(type) == pipe.getValve().getType()) {
+                addToPipesMap(pipe, getOppositeType(type));
+                pipe.setMajorPartsIsTaken(true);
+                pipe.ifMinorTakenSetPipeline();
+            } else if (pipes.size() == 0) {
+                pipes.put(pipe, locTypesList(type));
+                pipe.setMajorPartsIsTaken(true);
+                pipe.ifMinorTakenSetPipeline();
+                generate(node.getNodeByType(type), type);
+            } else if (pipe.getValve().getType() == RIGHT || pipe.getValve().getType() == LEFT) {
+                List<LocType> types = new LinkedList<>();
+                if (pipe.intakeContain(LEFT)) {
+                    houses.add(pipe.getIntakeHouse());
+                    types.add(LEFT);
+                } else if (pipe.intakeContain(RIGHT)) {
+                    houses.add(pipe.getIntakeHouse());
+                    types.add(RIGHT);
                 }
-
-            } else if (!pipe.partsContain(type)) {
-                LocType newType = null;
-                for (LocType locType : pipe.getParts()) {
-                    if (locType!=getOppositeType(type)) {
-                        newType = locType;
-                        break;
-                    }
+                types.add(UP);
+                types.add(DOWN);
+                pipes.put(pipe, types);
+                pipe.setMinorPartsIsTaken(true);
+                pipe.ifMajorTakenSetPipeline();
+                generate(node.getNodeByType(type), type);
+            } else if (pipe.getValve().getType() == UP || pipe.getValve().getType() == DOWN) {
+                List<LocType> types = new LinkedList<>();
+                if (pipe.intakeContain(UP)) {
+                    houses.add(pipe.getIntakeHouse());
+                    types.add(UP);
+                } else if (pipe.intakeContain(DOWN)) {
+                    houses.add(pipe.getIntakeHouse());
+                    types.add(DOWN);
                 }
-                pipes.put(pipe, locTypes(type, newType));
-                pipe.getNode().setType(PIPELINE);
-                System.out.print(newType);
-                generate(node.getNodeByType(newType), newType);
-            } else if (pipe.getParts().size() == 4) {
-                if (type == LEFT || type == RIGHT) {
-                    pipes.put(pipe, locTypes(LEFT, RIGHT));
-                    pipe.setMinorPartsIsTaken(true);
-                    if (pipe.getMajorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    generate(node.getNodeByType(type), type);
-                }
-                if (type == UP || type == DOWN) {
-                    pipes.put(pipe, locTypes(UP, DOWN));
-                    pipe.setMajorPartsIsTaken(true);
-                    if (pipe.getMinorPartsIsTaken()) {
-                        pipe.getNode().setType(PIPELINE);
-                    }
-                    generate(node.getNodeByType(type), type);
-                }
-            } else {
-                pipes.put(pipe, pipe.getParts());
-                pipe.getNode().setType(PIPELINE);
+                types.add(LEFT);
+                types.add(RIGHT);
+                pipes.put(pipe, types);
+                pipe.setMinorPartsIsTaken(true);
+                pipe.ifMajorTakenSetPipeline();
                 generate(node.getNodeByType(type), type);
             }
-     // }
+        } else if (!pipe.partsContain(type)) {
+            LocType newType = null;
+            for (LocType locType : pipe.getParts()) {
+                if (locType != getOppositeType(type)) {
+                    newType = locType;
+                    break;
+                }
+            }
+            List<LocType> types = new LinkedList<>();
+            types.add(getOppositeType(type));
+            types.add(newType);
+            if (!pipe.getIntake().isEmpty()) {
+                houses.add(pipe.getIntakeHouse());
+                types.add(pipe.getIntake().get(0));
+
+            }
+            pipes.put(pipe, types);
+            pipe.getNode().setType(PIPELINE);
+            System.out.print(newType);
+            generate(node.getNodeByType(newType), newType);
+        } else if (pipe.getParts().size() == 4) {
+            if (type == LEFT || type == RIGHT) {
+                pipes.put(pipe, locTypesList(LEFT, RIGHT));
+                pipe.setMinorPartsIsTaken(true);
+                pipe.ifMajorTakenSetPipeline();
+                generate(node.getNodeByType(type), type);
+            }
+            if (type == UP || type == DOWN) {
+                pipes.put(pipe, locTypesList(UP, DOWN));
+                pipe.setMajorPartsIsTaken(true);
+                pipe.ifMinorTakenSetPipeline();
+                generate(node.getNodeByType(type), type);
+            }
+        } else {
+            List<LocType> types = new LinkedList<>(pipe.getParts());
+            if (!pipe.getIntake().isEmpty() && pipe.getIntake().size() != 2) {
+                houses.add(pipe.getIntakeHouse());
+                types.add(pipe.getIntake().get(0));
+            }
+            pipes.put(pipe, types);
+            pipe.getNode().setType(PIPELINE);
+            generate(node.getNodeByType(type), type);
+        }
     }
 
     public List<House> getHouses() {

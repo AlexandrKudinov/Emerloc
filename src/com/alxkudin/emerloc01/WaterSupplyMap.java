@@ -1,18 +1,24 @@
 package com.alxkudin.emerloc01;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 import static com.alxkudin.emerloc01.LocType.*;
 import static com.alxkudin.emerloc01.NodeType.*;
 
 public class WaterSupplyMap {
+    private List<Pipeline> pipelines = new LinkedList<>();
+    private List<Valve> valves = new LinkedList<>();
     private final int MAX_HOUSES_IN_GROUP = 7;
-    Structure structure = Structure.getInstance();
-    Node[][] map = structure.getMap();
+    private Structure structure = Structure.getInstance();
+    private Node[][] map = structure.getMap();
 
-    List<Valve> valves = new LinkedList<>();
+    public List<Valve> getValves() {
+        return valves;
+    }
 
+    public List<Pipeline> getPipelines() {
+        return pipelines;
+    }
 
     public void addPipes() {
         for (int i = 0; i < map.length; i++) {
@@ -36,7 +42,7 @@ public class WaterSupplyMap {
                             !node.verify(HOUSE, RIGHT) &&
                             (node.verify(HOUSE, DOWN))) {
                         pipe.addParts(UP, LEFT, RIGHT);
-                        Valve valve = new Valve(UP);
+                        Valve valve = new Valve(UP, i, j);
                         pipe.setValve(valve);
                         valves.add(valve);
                         continue;
@@ -57,7 +63,7 @@ public class WaterSupplyMap {
                             !node.verify(HOUSE, LEFT) &&
                             (node.verify(HOUSE, UP))) {
                         pipe.addParts(DOWN, LEFT, RIGHT);
-                        Valve valve = new Valve(DOWN);
+                        Valve valve = new Valve(DOWN, i, j);
                         pipe.setValve(valve);
                         valves.add(valve);
                         continue;
@@ -93,23 +99,21 @@ public class WaterSupplyMap {
                         continue;
                     }
 
-
                     if (node.verify(HOUSE, RIGHT) && !node.verify(HOUSE, UP) && // left valve
                             !node.verify(HOUSE, DOWN) && !node.verify(HOUSE, LEFT) &&
                             (node.verify(HOUSE, LEFT, UP) || node.verify(HOUSE, LEFT, DOWN))) {
                         pipe.addParts(DOWN, LEFT, UP);
-                        Valve valve = new Valve(LEFT);
+                        Valve valve = new Valve(LEFT, i, j);
                         pipe.setValve(valve);
                         valves.add(valve);
                         continue;
                     }
 
-
                     if (node.verify(HOUSE, LEFT) && !node.verify(HOUSE, RIGHT) && //right valve
                             !node.verify(HOUSE, UP) && !node.verify(HOUSE, DOWN) &&
                             (node.verify(HOUSE, RIGHT, UP) || node.verify(HOUSE, RIGHT, DOWN))) {
                         pipe.addParts(DOWN, RIGHT, UP);
-                        Valve valve = new Valve(RIGHT);
+                        Valve valve = new Valve(RIGHT, i, j);
                         pipe.setValve(valve);
                         valves.add(valve);
                         continue;
@@ -290,24 +294,21 @@ public class WaterSupplyMap {
 
     }
 
-    List<Pipeline> pipelines = new LinkedList<>();
 
     public void pipelineUnion() {
 
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 Node node = map[i][j];
-                if(node.isPipelineBlock()){
+                if (node.isPipelineBlock()) {
                     System.out.print(1);
                 }
-                if(node.getType()==HOUSE){
+                if (node.getType() == HOUSE) {
                     System.out.print(2);
                 }
             }
             System.out.println();
         }
-
-
 
 
         for (int i = 0; i < map.length; i++) {
@@ -318,6 +319,7 @@ public class WaterSupplyMap {
                     Pipeline pipeline = new Pipeline();
                     LocType type = node.getPipe().getValve().getType();
                     pipeline.generate(node, type);
+                    pipeline.addDepHouses();
                     pipelines.add(pipeline);
                     System.out.println();
                 }

@@ -17,11 +17,27 @@ public class House {
     private List<House> intakeHouses = new LinkedList<>();
     private List<House> outtakeHouses = new LinkedList<>();
     private int housesInChain = 0;
-    Pipe intakePipe;
+    //Pipe intakePipe;
+    private boolean open;
+    private Pipe pipe;
 
-    public Pipe getIntakePipe() {
-        return intakePipe;
+
+    public boolean isOpen() {
+        return open;
     }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    public void changeStage() {
+        open = !open;
+    }
+
+
+
+
+
 
     public Node getNode() {
         return node;
@@ -31,9 +47,6 @@ public class House {
         this.node = node;
     }
 
-    public void setIntakePipe(Pipe intakePipe) {
-        this.intakePipe = intakePipe;
-    }
 
     public List<House> getOuttakeHouses() {
         return outtakeHouses;
@@ -64,7 +77,7 @@ public class House {
         this.housesInChain = depInGroup;
     }
 
-    private Pipe pipe;
+
 
     public Pipe getPipe() {
         return pipe;
@@ -102,8 +115,6 @@ public class House {
             add(node.getDownNode(), i + 1, j, width, height);
         }
     }
-
-
 
 
     public void addHouseInGroup(House newHouse) {
