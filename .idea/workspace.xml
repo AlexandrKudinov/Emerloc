@@ -2,40 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13ec7309-1575-41a6-bfb4-c62406f423b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Van.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Van.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_websocket_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_3_3_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_sockjs_client_1_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_stomp_websocket_2_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_webjars_locator_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/NodeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Display.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/FieldKeyListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/GameField$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/GameField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/House.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/LocType$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/LocType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/MainWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Node$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/NodeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Pipe.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Pipeline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Structure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Valve$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/Valve.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/alxkudin/emerloc01/WaterSupplyMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/LocType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/LocType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/NodeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/NodeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Valve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupplyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kudinov/emerloc01/WaterSupplyMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emerloc.01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Emerloc.01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Van.png" beforeDir="false" afterPath="$PROJECT_DIR$/Van.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Display.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/GameField$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/GameField$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/GameField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/House.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/LocType$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/LocType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/MainWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Node$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/NodeType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Pipe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Pipeline.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Structure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Valve$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Valve.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/Van.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Emerloc.01/com/kudinov/emerloc01/WaterSupplyMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Display.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/House.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/LocType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/MainWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/NodeType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipeline.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/Van.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kudinov/emerloc01/WaterSupplyMap.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,123 +62,117 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipe.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#459#460#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#636#637#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/MainWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/WaterSupplyMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="276" column="46" selection-start-line="276" selection-start-column="46" selection-end-line="276" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Van.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-206">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1898#1899#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Van.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/WaterSupplyMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
-              <folding>
-                <element signature="e#814#815#0" expanded="true" />
-                <element signature="e#863#864#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipeline.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="90" column="48" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="90" selection-end-column="48" />
+            <state relative-caret-position="300">
+              <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-                <element signature="e#504#505#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#367#368#0" expanded="true" />
-                <element signature="e#6154#6155#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Valve.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="919">
-              <caret line="277" column="30" selection-start-line="277" selection-start-column="30" selection-end-line="277" selection-end-column="30" />
+            <state relative-caret-position="357">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12775#12776#0" expanded="true" />
-                <element signature="e#12801#12802#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/LocType.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipeline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="1683">
+              <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#519#520#0" expanded="true" />
+                <element signature="e#548#549#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/NodeType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Display.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="181" column="51" selection-start-line="181" selection-start-column="51" selection-end-line="181" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/GameField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/House.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/LocType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,14 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc/GameField.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/MapArea.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/MapFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/CityMap.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Print.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/housesMap.java" />
-        <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Map.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterSupply.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/WaterIntake.java" />
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Type.java" />
@@ -221,15 +221,37 @@
         <option value="$PROJECT_DIR$/src/com/alxkudin/emerloc01/Pipeline.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/House.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/NodeType.java" />
-        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipe.java" />
-        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Display.java" />
-        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipeline.java" />
-        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/WaterSupplyMap.java" />
+        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Node.java" />
+        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java" />
+        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java" />
         <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Van.java" />
+        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Display.java" />
+        <option value="$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/House.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Node.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Structure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Van.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/NodeType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/LocType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipeline.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Display.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Valve.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/GameField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/WaterSupplyMap.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -260,6 +282,21 @@
               <item name="Emerloc.01" type="b2602c69:ProjectViewProjectNode" />
               <item name="Emerloc.01" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Emerloc.01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Emerloc.01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Emerloc.01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Emerloc.01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="emerloc01" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -270,14 +307,22 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/kudinov/emerloc01" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Александр\Desktop\Emerloc.01\" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Александр\Desktop\Emerloc.01" />
       <recent name="C:\Users\Александр\Desktop\Emerloc.01\src\com\kudinov\emerloc01" />
     </key>
   </component>
@@ -293,8 +338,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainWindow (1)">
+  <component name="RunManager" selected="Application.MainWindow (2)">
     <configuration name="MainWindow (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.com.kudinov.emerloc01.MainWindow" />
+      <module name="Emerloc.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.com.kudinov.emerloc01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainWindow (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kudinov.emerloc01.MainWindow" />
       <module name="Emerloc.01" />
       <extension name="coverage">
@@ -320,8 +378,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kudinov.emerloc01.MainWindow" />
+      <module name="Emerloc.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kudinov.emerloc01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainWindow (2)" />
+        <item itemvalue="Application.MainWindow (1)" />
         <item itemvalue="Application.MainWindow (1)" />
         <item itemvalue="Application.MainWindow" />
       </list>
@@ -343,7 +416,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.19109312" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" weight="0.26963562" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.24939272" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -355,8 +428,8 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.07350428" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.124786325" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23418804" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42735043" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -376,7 +449,7 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.18785425" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4979253" visible="true" weight="0.26963562" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.24939272" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -388,15 +461,15 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1982906" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.124786325" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.124786325" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42735043" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.15726496" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.15726496" />
       <window_info anchor="bottom" id="Console" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -423,33 +496,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/HousesMap.java" />
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/ArmatureType.java" />
     <entry file="file://$PROJECT_DIR$/src/com/alxkudin/emerloc01/MapStructure.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="185" column="33" selection-start-line="185" selection-start-column="33" selection-end-line="185" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/House.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/NodeType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.desktop/java/awt/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -457,118 +503,214 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Display.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="146" column="13" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Valve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-206">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/LocType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Van.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/GameField.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/NodeType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Pipeline.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="90" column="48" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="90" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#6154#6155#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Structure.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="277" column="30" selection-start-line="277" selection-start-column="30" selection-end-line="277" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#12775#12776#0" expanded="true" />
-            <element signature="e#12801#12802#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/WaterSupplyMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Structure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="276" column="46" selection-start-line="276" selection-start-column="46" selection-end-line="276" selection-end-column="46" />
+        <state relative-caret-position="102">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Van.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kudinov/emerloc01/Van.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/LocType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
+        <state relative-caret-position="34">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/NodeType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="181" column="51" selection-start-line="181" selection-start-column="51" selection-end-line="181" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Pipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/Valve.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/GameField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kudinov/emerloc01/WaterSupplyMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Emerloc.01</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.springframework.boot:spring-boot-starter-test:unknown</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
