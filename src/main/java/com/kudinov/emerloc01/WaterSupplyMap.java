@@ -1,5 +1,6 @@
 package com.kudinov.emerloc01;
 
+
 import java.util.*;
 
 import static com.kudinov.emerloc01.LocType.*;
@@ -10,6 +11,7 @@ public class WaterSupplyMap {
     private List<Valve> valves = new LinkedList<>();
     private Structure structure = Structure.getInstance();
     private Node[][] map = structure.getMap();
+    private List<Valve> closeValves = new LinkedList<>();
 
     public List<Valve> getValves() {
         return valves;
@@ -275,7 +277,7 @@ public class WaterSupplyMap {
 
     public void generateAccidents() {
         for (Pipeline pipeline : pipelines) {
-            if (pipeline.getHouses().size() > 3) {
+            if (pipeline.getHouses().size() > 2) {
                 pipeline.setAccident();
                 int rnd = (int) (Math.random() * pipeline.getPipes().size() - 2);
                 List<Pipe> pipes = new ArrayList<>(pipeline.getPipes().keySet());
@@ -288,16 +290,108 @@ public class WaterSupplyMap {
     }
 
 
-    public void checkValves() {
-        for(Valve valve:valves){
-            if(valve.getSecondPipeline()!=null && valve.getFirstPipeline()!=null){
-                System.out.println("both");
-            }else
-            if(valve.getFirstPipeline()!=null){
-                System.out.println("first");
-            }else
-            if(valve.getSecondPipeline()!=null){
-                System.out.println("second");
+    public void checkDifValves(List<Pipeline> pipelines) {
+        Set<Valve> valves = new HashSet<>();
+        for (Pipeline pipeline : pipelines) {
+            if(!pipeline.isOpen()){
+                continue;
+            }
+
+            for(Valve valve:pipeline.getValves()){
+               if(valves.contains(valve)){
+                   valves.remove(valve);
+               }else {
+                   valves.add(valve);
+               }
+            }
+        }
+        for (Valve valve : valves) {
+            if (valve.isOpen()) {
+                for (Pipeline pipeline : pipelines) {
+                    pipeline.setStage(true);
+                }
+                return;
+            }
+        }
+        for (Pipeline pipeline : pipelines) {
+           pipeline.setStage(false);
+        }
+    }
+
+
+    public List<List<Pipeline>> union() {
+        List<List<Pipeline>> lists = new LinkedList<>();
+/*
+        for(int i = 0; i < pipelines.size(); i++){
+            List<Pipeline> pipelines1 = new LinkedList<>();
+            pipelines1.add(pipelines.get(i));
+            lists.add(pipelines1);
+        }
+
+
+ */
+        for (int i = 0; i < pipelines.size() - 1; i++) {
+            for (int j = i + 1; j < pipelines.size(); j++) {
+                List<Pipeline> list = new LinkedList<>();
+                list.add(pipelines.get(i));
+                list.add(pipelines.get(j));
+                lists.add(list);
+            }
+        }
+
+        for(int i = 0; i < pipelines.size(); i++){
+            List<Pipeline> pipelines1 = new LinkedList<>();
+            pipelines1.add(pipelines.get(i));
+            lists.add(pipelines1);
+        }
+        return lists;
+    }
+
+    public void check() {
+        List<List<Pipeline>> lists=union();
+        for(List<Pipeline> pipelines:lists){
+            checkDifValves(pipelines);
+        }
+    }
+
+    public void checkValves(Set<Pipeline> pipelines, Pipeline pipeline, Valve valve) {
+        if (pipelines.size() == getPipelines().size() - 2) {
+            return;
+        }
+        Pipeline pipeline1 = valve.getAnother(pipeline);
+        if (valve.allButOneIsClose(pipeline1)) {
+            valve.setMysticOpen(false);
+            return;
+        }
+        for (Valve valve1 : pipeline1.getValves()) {
+            if (valve1 != valve && (valve1.isOpen() && valve1.isMysticOpen() || valve.allButOneIsClose(pipeline1))) {
+                pipelines.add(pipeline1);
+                checkValves(pipelines, valve1.getAnother(pipeline1), valve1);
+            }
+        }
+    }
+
+    public void checkPipelines() {
+        for (Pipeline pipeline : pipelines) {
+            for (Valve valve : pipeline.getValves()) {
+                if (valve.isOpen()) {
+                    Set<Pipeline> pipelines = new HashSet<>();
+                    pipelines.add(pipeline);
+
+                    checkValves(pipelines, pipeline, valve);
+                }
+            }
+        }
+
+        for (Pipeline pipeline : pipelines) {
+            one:
+            {
+                for (Valve valve : pipeline.getValves()) {
+                    if (!valve.isOpen() || !valve.isMysticOpen()) {
+                        continue;
+                    } else break one;
+                }
+                pipeline.setStage(false);
             }
         }
     }

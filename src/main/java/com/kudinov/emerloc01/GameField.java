@@ -54,7 +54,6 @@ public class GameField extends JPanel {
                     Display.changeStage();
                     GameField.super.repaint();
                 }
-
             }
         });
         setFocusable(true);
@@ -66,7 +65,7 @@ public class GameField extends JPanel {
         waterSupplyMap.addPipes();
         waterSupplyMap.addWaterIntake();
         waterSupplyMap.pipelineUnion();
-        waterSupplyMap.checkValves();
+
         waterSupplyMap.generateAccidents();
     }
 

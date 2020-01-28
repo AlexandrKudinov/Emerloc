@@ -17,7 +17,7 @@ public class Van {
         this.j = baseX + j * BLOCK;
     }
 
-    private boolean canMove(int i, int j) {
+    public boolean canMove(int i, int j) {
         int nodeI = (i - baseY) / BLOCK;
         int nodeJ = (j - baseX) / BLOCK;
         Node node = GameField.structure.getMap()[nodeI][nodeJ];

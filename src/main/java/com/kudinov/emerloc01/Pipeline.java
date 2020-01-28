@@ -9,7 +9,7 @@ public class Pipeline {
     private List<Valve> valves = new LinkedList<>();
     private Map<Pipe, List<LocType>> pipes = new HashMap<>();
     private List<House> houses = new LinkedList<>();
-    private boolean open;
+    private boolean open = true;
     private boolean accident;
 
     public void setStage(boolean stage) {
@@ -47,6 +47,7 @@ public class Pipeline {
         }
         return locTypeList;
     }
+
 
 
     public boolean allButOneIsClose(Valve valve){
@@ -127,6 +128,9 @@ public class Pipeline {
                     houses.add(pipe.getIntakeHouse());
                     types.add(RIGHT);
                 }
+                if(pipes.containsKey(pipe)){
+                    types.addAll(pipes.get(pipe));
+                }
                 types.add(UP);
                 types.add(DOWN);
                 pipes.put(pipe, types);
@@ -141,6 +145,9 @@ public class Pipeline {
                 } else if (pipe.intakeContain(DOWN)) {
                     houses.add(pipe.getIntakeHouse());
                     types.add(DOWN);
+                }
+                if(pipes.containsKey(pipe)){
+                    types.addAll(pipes.get(pipe));
                 }
                 types.add(LEFT);
                 types.add(RIGHT);
@@ -170,13 +177,25 @@ public class Pipeline {
             generate(node.getNodeByType(newType), newType);
         } else if (pipe.getParts().size() == 4) {
             if (type == LEFT || type == RIGHT) {
-                pipes.put(pipe, locTypesList(LEFT, RIGHT));
+                List<LocType> types = new LinkedList<>();
+                if(pipes.containsKey(pipe)){
+                    types.addAll(pipes.get(pipe));
+                }
+                types.add(LEFT);
+                types.add(RIGHT);
+                pipes.put(pipe, types);
                 pipe.setMinorPartsIsTaken(true);
                 pipe.ifMajorTakenSetPipeline();
                 generate(node.getNodeByType(type), type);
             }
             if (type == UP || type == DOWN) {
-                pipes.put(pipe, locTypesList(UP, DOWN));
+                List<LocType> types = new LinkedList<>();
+                if(pipes.containsKey(pipe)){
+                    types.addAll(pipes.get(pipe));
+                }
+                types.add(UP);
+                types.add(DOWN);
+                pipes.put(pipe, types);
                 pipe.setMajorPartsIsTaken(true);
                 pipe.ifMinorTakenSetPipeline();
                 generate(node.getNodeByType(type), type);

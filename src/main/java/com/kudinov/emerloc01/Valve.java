@@ -12,12 +12,31 @@ public class Valve {
     private int j;
     private Pipeline firstPipeline;
     private Pipeline secondPipeline;
+    private boolean mysticOpen = true;
+
+    public boolean isMysticOpen() {
+        return mysticOpen;
+    }
+
+    public void setMysticOpen(boolean mysticOpen) {
+        this.mysticOpen = mysticOpen;
+    }
 
     public Pipeline getFirstPipeline() {
         return firstPipeline;
     }
 
 
+    public boolean allButOneIsClose(Pipeline pipeline) {
+        if(pipeline==firstPipeline || pipeline==secondPipeline) {
+            for (Valve valve : pipeline.getValves()) {
+                if (valve != this && (!valve.isOpen() || !valve.isMysticOpen())) {
+                    continue;
+                } else return false;
+            }
+        }
+        return true;
+    }
 
 
     public Pipeline getAnother(Pipeline pipeline) {
@@ -29,7 +48,7 @@ public class Valve {
     }
 
     public void setPipeline(Pipeline pipeline) {
-        if(pipeline==secondPipeline || pipeline==firstPipeline){
+        if (pipeline == secondPipeline || pipeline == firstPipeline) {
             return;
         }
         if (firstPipeline == null) {

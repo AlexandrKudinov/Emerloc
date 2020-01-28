@@ -1,7 +1,7 @@
 package com.kudinov.emerloc01;
 
 import javax.swing.*;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
@@ -134,6 +134,7 @@ public class Display {
 
 
     public static void showHousesMap(Graphics g) {
+        GameField.waterSupplyMap.check();
         /*
         int I = GameField.structure.getVan().getI() - 75;
         int J = GameField.structure.getVan().getJ() - 150;
@@ -179,10 +180,11 @@ public class Display {
         }
 
         if (onEmergency) {
-            GameField.waterSupplyMap.checkValves();
+           //GameField.waterSupplyMap.checkPipelines();
+
             for (Pipeline pipeline : GameField.waterSupplyMap.getPipelines()) {
                 Map<Pipe, List<LocType>> pipelineMap = pipeline.getPipes();
-                pipeline.updateStatus();
+                //pipeline.updateStatus();
                 boolean open = pipeline.isOpen();
                 for (Map.Entry<Pipe, List<LocType>> listEntry : pipelineMap.entrySet()) {
                     int i = listEntry.getKey().getNode().getI();
