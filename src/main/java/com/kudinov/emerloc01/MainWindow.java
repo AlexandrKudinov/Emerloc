@@ -1,11 +1,9 @@
 package com.kudinov.emerloc01;
 
-import com.kudinov.db.Player;
-import com.kudinov.db.PlayerDAO;
-import com.kudinov.db.PlayerDAOImpl;
+
 
 import javax.swing.*;
-
+import com.kudinov.emerloc01.GameField;
 public class MainWindow extends JFrame {
     public MainWindow() {
         add(new GameField());
