@@ -1,13 +1,12 @@
-package com.kudinov.emerloc01;
+package logic;
 
-
-import  com.kudinov.emerloc01.NodeType.*;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.kudinov.emerloc01.Structure.NodeType.*;
+import static logic.Structure.NodeType.*;
+import static logic.Structure.NodeType.PIPELINE;
 
 public class Pipe {
     private List<LocType> parts = new LinkedList<>();

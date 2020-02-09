@@ -1,9 +1,6 @@
-package com.kudinov.emerloc01;
+package logic;
 
-import java.util.List;
-import java.util.Set;
-
-import static com.kudinov.emerloc01.Display.*;
+import static logic.Display.*;
 
 public class Valve {
     private LocType type;

@@ -1,17 +1,27 @@
-package com.kudinov.emerloc01;
+package logic;
 
 
 import java.util.*;
 
-import static com.kudinov.emerloc01.LocType.*;
-import static com.kudinov.emerloc01.Structure.NodeType.*;
+import static logic.LocType.*;
+import static logic.Structure.NodeType.*;
 
 public class WaterSupplyMap {
     private List<Pipeline> pipelines = new LinkedList<>();
     private List<Valve> valves = new LinkedList<>();
-    private Structure structure = Structure.getInstance();
-    private Node[][] map = structure.getMap();
+    private Structure structure;//Structure.getInstance();
+    private Node[][] map;
     private List<Valve> closeValves = new LinkedList<>();
+
+    public void setStructure(Structure structure){
+        this.structure=structure;
+
+    }
+
+    public void setMap(Node[][] map){
+        this.map = map;
+    }
+
 
     public List<Valve> getValves() {
         return valves;
@@ -132,7 +142,7 @@ public class WaterSupplyMap {
         final int MAX_HOUSES_IN_GROUP = 7;
         boolean allHousesInGroupNotFull = true;
         List<House> unionHouses = new LinkedList<>();
-        List<House> sortedHouses = new ArrayList<>(Structure.getInstance().houses.values());
+        List<House> sortedHouses = new ArrayList<>(structure.houses.values());
         sortedHouses.sort((o1, o2) -> {
             if (o1.getHouseFragments().size() > o2.getHouseFragments().size()) {
                 return 1;

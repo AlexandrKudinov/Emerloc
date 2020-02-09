@@ -1,16 +1,19 @@
-package com.kudinov.emerloc01;
+package logic;
 
-import static com.kudinov.emerloc01.Display.*;
+import static logic.Display.*;
 
 public class Van {
+private Structure structure;
 
-
+    public void setStructure(Structure structure) {
+        this.structure = structure;
+    }
 
     int i;
     int j;
 
-    int MAX_J = baseX + (GameField.structure.getMap().length*2-1)* BLOCK;//-1
-    int MAX_I = baseY + (GameField.structure.getMap().length-1) * BLOCK;//-1
+    int MAX_J = baseX + (Structure.width-1)* BLOCK;//-1
+    int MAX_I = baseY + (Structure.height-1) * BLOCK;//-1
 
     public Van(int i, int j) {
         this.i = baseY + i * BLOCK;
@@ -20,14 +23,14 @@ public class Van {
     public boolean canMove(int i, int j) {
         int nodeI = (i - baseY) / BLOCK;
         int nodeJ = (j - baseX) / BLOCK;
-        Node node = GameField.structure.getMap()[nodeI][nodeJ];
+        Node node = structure.getMap()[nodeI][nodeJ];
         return !node.isHouse();
     }
 
     private boolean onAccident() {
         int nodeI = (i - baseY) / BLOCK;
         int nodeJ = (j - baseX) / BLOCK;
-        Node node = GameField.structure.getMap()[nodeI][nodeJ];
+        Node node = structure.getMap()[nodeI][nodeJ];
         return node.getPipe().isAccident();
     }
 

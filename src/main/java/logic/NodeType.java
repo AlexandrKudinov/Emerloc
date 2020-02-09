@@ -1,4 +1,4 @@
-package com.kudinov.emerloc01;
+package logic;
 
 
 public enum  NodeType {

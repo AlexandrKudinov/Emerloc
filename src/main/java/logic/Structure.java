@@ -1,34 +1,34 @@
-package com.kudinov.emerloc01;
+package logic;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.kudinov.emerloc01.Display.*;
+import static logic.Display.*;
 
 
 public class Structure {
     private Van van;
-    private static volatile Structure INSTANCE;
+//    private static volatile Structure INSTANCE;
+//
+//    private Structure() {
+//    }
+//
+//    public static Structure getInstance() {
+//        Structure structure = INSTANCE;
+//        if (structure == null) {
+//            synchronized (Structure.class) {
+//                structure = INSTANCE;
+//                if (structure == null) {
+//                    structure = INSTANCE = new Structure();
+//                }
+//            }
+//        }
+//        return structure;
+//    }
 
-    private Structure() {
-    }
-
-    public static Structure getInstance() {
-        Structure structure = INSTANCE;
-        if (structure == null) {
-            synchronized (Structure.class) {
-                structure = INSTANCE;
-                if (structure == null) {
-                    structure = INSTANCE = new Structure();
-                }
-            }
-        }
-        return structure;
-    }
-
-    private int height = 20;
-    private int width = 40;
+    public static int height = 30;
+    public static int width = 60;
     private Node[][] map = new Node[height][width];
     public Map<Node, House> houses = new HashMap<>();
 
@@ -283,6 +283,7 @@ public class Structure {
             midI++;
         }
         van = new Van(midI, midJ);
+        van.setStructure(this);
     }
 
     public Van getVan() {

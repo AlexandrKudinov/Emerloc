@@ -1,9 +1,9 @@
-package com.kudinov.emerloc01;
+package logic;
 
 import java.util.Objects;
 import java.util.Random;
 
-import static com.kudinov.emerloc01.LocType.*;
+import static logic.LocType.*;
 
 
 public class Node {

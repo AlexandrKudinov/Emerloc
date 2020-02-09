@@ -1,9 +1,18 @@
-package com.kudinov.emerloc01;
+package logic;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-import static com.kudinov.emerloc01.LocType.*;
-import static com.kudinov.emerloc01.Structure.NodeType.*;
+import static logic.LocType.*;
+import static logic.LocType.DOWN;
+import static logic.LocType.LEFT;
+import static logic.LocType.RIGHT;
+import static logic.LocType.UP;
+import static logic.LocType.getOppositeType;
+import static logic.Structure.NodeType.*;
+import static logic.Structure.NodeType.PIPELINE;
 
 public class Pipeline {
     private List<Valve> valves = new LinkedList<>();
@@ -170,7 +179,6 @@ public class Pipeline {
             if (!pipe.getIntake().isEmpty()) {
                 houses.add(pipe.getIntakeHouse());
                 types.add(pipe.getIntake().get(0));
-
             }
             pipes.put(pipe, types);
             pipe.getNode().setType(PIPELINE);

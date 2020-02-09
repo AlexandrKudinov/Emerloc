@@ -1,6 +1,6 @@
-package com.kudinov.emerloc01;
+package logic;
 
-public enum LocType {
+public enum  LocType {
     UP, DOWN, LEFT, RIGHT;
 
     public static LocType getOppositeType(LocType type) {

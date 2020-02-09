@@ -1,18 +1,23 @@
-package com.kudinov.emerloc01;
+package logic;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-import static com.kudinov.emerloc01.LocType.*;
+import static logic.LocType.*;
 
 
 public class Display {
+   private WaterSupplyMap waterSupplyMap;
+
+    public void setWaterSupplyMap(WaterSupplyMap waterSupplyMap) {
+        this.waterSupplyMap = waterSupplyMap;
+    }
+
     public static boolean onEmergency = false;
     public static Image van = new ImageIcon("Van.png").getImage();
-    public static final int BLOCK = 30;
+    public static final int BLOCK = 20;
     public static int baseX = 40;
     public static int baseY = 10;
     public static Color background = new Color(24, 24, 24);
@@ -133,8 +138,8 @@ public class Display {
     }
 
 
-    public static void showHousesMap(Graphics g) {
-        GameField.waterSupplyMap.check();
+    public  void showHousesMap(Graphics g) {
+        waterSupplyMap.check();
         /*
         int I = GameField.structure.getVan().getI() - 75;
         int J = GameField.structure.getVan().getJ() - 150;
@@ -160,7 +165,7 @@ public class Display {
 
          */
 
-        for (Pipeline pipeline : GameField.waterSupplyMap.getPipelines()) {
+        for (Pipeline pipeline : waterSupplyMap.getPipelines()) {
             if (!onEmergency) {
                 if (pipeline.isAccident()) {
                     for (Pipe pipe : pipeline.getPipes().keySet()) {
@@ -182,7 +187,7 @@ public class Display {
         if (onEmergency) {
            //GameField.waterSupplyMap.checkPipelines();
 
-            for (Pipeline pipeline : GameField.waterSupplyMap.getPipelines()) {
+            for (Pipeline pipeline : waterSupplyMap.getPipelines()) {
                 Map<Pipe, List<LocType>> pipelineMap = pipeline.getPipes();
                 //pipeline.updateStatus();
                 boolean open = pipeline.isOpen();
@@ -230,7 +235,7 @@ public class Display {
 
             }
 
-            for (Valve valve : GameField.waterSupplyMap.getValves()) {
+            for (Valve valve : waterSupplyMap.getValves()) {
                 showValve(g, valve.getJ(), valve.getI(), valve.isOpen());
             }
 

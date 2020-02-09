@@ -1,10 +1,10 @@
-package com.kudinov.emerloc01;
+package logic;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.kudinov.emerloc01.LocType.*;
+import static logic.LocType.*;
 
 
 public class House {
